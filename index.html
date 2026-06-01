@@ -1,0 +1,2917 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide DELF B2 — Excellence Garantie</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+        
+         :root {
+            --primary: #1A3C5E;
+            --secondary: #2E75B6;
+            --accent: #C0392B;
+            --gold: #D4A017;
+            --green: #1E6B3C;
+            --purple: #5B2C6F;
+            --orange: #C0550A;
+            --bg: #F8F9FC;
+            --card: #fff;
+            --text: #1a1a2e;
+            --muted: #6b7280;
+            --border: #e2e8f0;
+            --nav-w: 270px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh
+        }
+        /* SIDEBAR */
+        
+        #sidebar {
+            width: var(--nav-w);
+            min-height: 100vh;
+            background: var(--primary);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            z-index: 100;
+            display: flex;
+            flex-direction: column
+        }
+        
+        #sidebar-header {
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+        }
+        
+        #sidebar-header h1 {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.3
+        }
+        
+        #sidebar-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            margin-top: 4px
+        }
+        
+        #sidebar nav {
+            padding: 12px 0;
+            flex: 1
+        }
+        
+        .nav-section {
+            padding: 8px 20px 4px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px
+        }
+        
+        .nav-item {
+            display: block;
+            padding: 9px 20px 9px 28px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+            transition: all .15s;
+            text-decoration: none
+        }
+        
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff
+        }
+        
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border-left-color: var(--gold)
+        }
+        
+        .nav-sub {
+            padding-left: 40px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55)
+        }
+        
+        .nav-sub.active {
+            color: #fff;
+            border-left-color: rgba(255, 255, 255, 0.4)
+        }
+        
+        #progress-bar {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 20px 12px;
+            border-radius: 2px
+        }
+        
+        #progress-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width .3s;
+            width: 0%
+        }
+        
+        #progress-label {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+            padding: 0 20px 16px;
+            text-align: right
+        }
+        /* MAIN */
+        
+        #main {
+            margin-left: var(--nav-w);
+            flex: 1;
+            padding: 0
+        }
+        
+        #topbar {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 50
+        }
+        
+        #topbar h2 {
+            font-size: 15px;
+            color: var(--primary);
+            font-weight: 600
+        }
+        
+        #topbar-right {
+            display: flex;
+            gap: 10px
+        }
+        
+        .btn-top {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--muted);
+            transition: all .15s
+        }
+        
+        .btn-top:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary)
+        }
+        
+        .btn-top.accent {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent)
+        }
+        /* SECTIONS */
+        
+        .section {
+            display: none;
+            padding: 32px 36px 60px;
+            max-width: 960px
+        }
+        
+        .section.active {
+            display: block
+        }
+        /* HERO */
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2E75B6 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: #fff;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden
+        }
+        
+        .hero::before {
+            content: 'B2';
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 140px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            line-height: 1
+        }
+        
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px
+        }
+        
+        .hero p {
+            opacity: .8;
+            font-size: 15px;
+            max-width: 580px;
+            line-height: 1.6
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            flex-wrap: wrap
+        }
+        
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 12px 20px;
+            text-align: center
+        }
+        
+        .hero-stat strong {
+            display: block;
+            font-size: 24px;
+            font-weight: 800
+        }
+        
+        .hero-stat span {
+            font-size: 11px;
+            opacity: .7
+        }
+        /* CARDS */
+        
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 20px
+        }
+        
+        .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+        
+        .card-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--secondary);
+            border-radius: 2px;
+            display: inline-block
+        }
+        /* TABLES */
+        
+        .tbl-wrap {
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border)
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+        
+        thead tr {
+            background: var(--primary);
+            color: #fff
+        }
+        
+        thead th {
+            padding: 10px 14px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 12px;
+            letter-spacing: .3px
+        }
+        
+        tbody tr:nth-child(even) {
+            background: #f8fafd
+        }
+        
+        tbody tr:hover {
+            background: #eef4fb
+        }
+        
+        td {
+            padding: 9px 14px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5
+        }
+        
+        td:first-child {
+            font-weight: 600;
+            color: var(--primary)
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600
+        }
+        
+        .tag-b {
+            background: #dbeafe;
+            color: #1d4ed8
+        }
+        
+        .tag-g {
+            background: #dcfce7;
+            color: #166534
+        }
+        
+        .tag-o {
+            background: #ffedd5;
+            color: #9a3412
+        }
+        
+        .tag-p {
+            background: #f3e8ff;
+            color: #7e22ce
+        }
+        
+        .tag-r {
+            background: #fee2e2;
+            color: #991b1b
+        }
+        
+        .ex {
+            color: #555;
+            font-style: italic;
+            font-size: 12px
+        }
+        /* TABS */
+        
+        .tabs {
+            display: flex;
+            gap: 4px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap
+        }
+        
+        .tab {
+            padding: 8px 16px;
+            border-radius: 7px;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--muted);
+            font-weight: 500;
+            transition: all .15s;
+            border: none;
+            background: transparent
+        }
+        
+        .tab.active {
+            background: #fff;
+            color: var(--primary);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+            font-weight: 600
+        }
+        
+        .tab-content {
+            display: none
+        }
+        
+        .tab-content.active {
+            display: block
+        }
+        /* CHIPS / BADGES */
+        
+        .chip {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 3px
+        }
+        
+        .chip-blue {
+            background: #dbeafe;
+            color: #1e40af
+        }
+        
+        .chip-green {
+            background: #dcfce7;
+            color: #15803d
+        }
+        
+        .chip-orange {
+            background: #ffedd5;
+            color: #c2410c
+        }
+        
+        .chip-purple {
+            background: #f3e8ff;
+            color: #7c3aed
+        }
+        
+        .chip-red {
+            background: #fee2e2;
+            color: #b91c1c
+        }
+        
+        .chip-gray {
+            background: #f1f5f9;
+            color: #475569
+        }
+        /* ACCORDIONS */
+        
+        .acc-item {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden
+        }
+        
+        .acc-header {
+            padding: 14px 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card);
+            font-weight: 600;
+            font-size: 14px;
+            user-select: none
+        }
+        
+        .acc-header:hover {
+            background: #f8fafd
+        }
+        
+        .acc-header .ico {
+            font-size: 18px;
+            transition: transform .2s;
+            color: var(--muted)
+        }
+        
+        .acc-header.open .ico {
+            transform: rotate(180deg)
+        }
+        
+        .acc-body {
+            display: none;
+            padding: 16px 18px;
+            background: #fafbfd;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            line-height: 1.7
+        }
+        
+        .acc-body.open {
+            display: block
+        }
+        /* ALERT BOXES */
+        
+        .alert {
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            line-height: 1.6;
+            border-left: 4px solid
+        }
+        
+        .alert-blue {
+            background: #eff6ff;
+            border-color: #3b82f6;
+            color: #1e40af
+        }
+        
+        .alert-green {
+            background: #f0fdf4;
+            border-color: #22c55e;
+            color: #15803d
+        }
+        
+        .alert-orange {
+            background: #fff7ed;
+            border-color: #f97316;
+            color: #c2410c
+        }
+        
+        .alert-red {
+            background: #fef2f2;
+            border-color: #ef4444;
+            color: #b91c1c
+        }
+        
+        .alert-purple {
+            background: #faf5ff;
+            border-color: #a855f7;
+            color: #7c3aed
+        }
+        
+        .alert strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 13px
+        }
+        /* QUIZ */
+        
+        .quiz-q {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px
+        }
+        
+        .quiz-q p {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 14px
+        }
+        
+        .quiz-opt {
+            display: block;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom=8px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all .15s;
+            margin-bottom: 8px;
+            background: var(--card)
+        }
+        
+        .quiz-opt:hover {
+            border-color: var(--secondary);
+            background: #eff6ff
+        }
+        
+        .quiz-opt.correct {
+            border-color: #22c55e;
+            background: #f0fdf4;
+            color: #166534;
+            font-weight: 600
+        }
+        
+        .quiz-opt.wrong {
+            border-color: #ef4444;
+            background: #fef2f2;
+            color: #991b1b
+        }
+        
+        .quiz-feedback {
+            font-size: 12px;
+            margin-top: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: none
+        }
+        
+        .quiz-score {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            display: none
+        }
+        /* MODEL TEXT BOXES */
+        
+        .model-box {
+            border: 2px solid var(--secondary);
+            border-radius: 12px;
+            padding: 24px;
+            background: #eff6ff;
+            margin-bottom: 20px;
+            position: relative
+        }
+        
+        .model-box::before {
+            content: attr(data-label);
+            position: absolute;
+            top: -12px;
+            left: 16px;
+            background: var(--secondary);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700
+        }
+        
+        .model-box p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            text-align: justify
+        }
+        
+        .model-box .model-meta {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--border)
+        }
+        /* CHECKLIST */
+        
+        .checklist {
+            list-style: none
+        }
+        
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none
+        }
+        
+        .check-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            flex-shrink: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .15s;
+            margin-top: 1px
+        }
+        
+        .check-box.checked {
+            background: var(--green);
+            border-color: var(--green);
+            color: #fff
+        }
+        
+        .check-box.checked::after {
+            content: '✓';
+            font-size: 12px;
+            font-weight: 700
+        }
+        
+        .checklist li.checked-item .item-text {
+            text-decoration: line-through;
+            color: var(--muted)
+        }
+        /* CONJUGATION CARDS */
+        
+        .conj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 20px
+        }
+        
+        .conj-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            border-top: 3px solid var(--secondary)
+        }
+        
+        .conj-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px
+        }
+        
+        .conj-card ul {
+            list-style: none;
+            font-size: 12px
+        }
+        
+        .conj-card li {
+            padding: 4px 0;
+            border-bottom: 1px solid #f1f5f9;
+            color: #374151
+        }
+        
+        .conj-card li:last-child {
+            border: none
+        }
+        
+        .conj-card li em {
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 600
+        }
+        /* STRATEGY CARDS */
+        
+        .strat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+            margin-bottom: 20px
+        }
+        
+        .strat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all .2s
+        }
+        
+        .strat-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 117, 182, .12)
+        }
+        
+        .strat-card .sc-icon {
+            font-size: 24px;
+            margin-bottom: 8px
+        }
+        
+        .strat-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px
+        }
+        
+        .strat-card p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+        
+        .pts {
+            background: var(--accent);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 11px;
+            padding: 2px 7px;
+            font-weight: 700;
+            float: right
+        }
+        /* SCORING */
+        
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+            margin-bottom: 20px
+        }
+        
+        .score-cell {
+            padding: 10px 6px;
+            text-align: center;
+            font-size: 12px;
+            border-radius: 6px
+        }
+        
+        .score-cell strong {
+            display: block;
+            font-size: 18px;
+            font-weight: 800
+        }
+        
+        .sc1 {
+            background: #fee2e2;
+            color: #991b1b
+        }
+        
+        .sc2 {
+            background: #ffedd5;
+            color: #9a3412
+        }
+        
+        .sc3 {
+            background: #fef9c3;
+            color: #854d0e
+        }
+        
+        .sc4 {
+            background: #dcfce7;
+            color: #166534
+        }
+        
+        .sc5 {
+            background: #dbeafe;
+            color: #1e40af
+        }
+        /* ORAL TIMELINE */
+        
+        .timeline {
+            position: relative;
+            padding-left: 28px
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border)
+        }
+        
+        .tl-item {
+            position: relative;
+            margin-bottom: 20px
+        }
+        
+        .tl-dot {
+            position: absolute;
+            left: -24px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #fff;
+            font-weight: 700
+        }
+        
+        .tl-content {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px
+        }
+        
+        .tl-content h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px
+        }
+        
+        .tl-content p {
+            font-size: 12px;
+            color: #374151;
+            line-height: 1.6
+        }
+        
+        .tl-time {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 10px;
+            padding: 2px 8px;
+            margin-bottom: 6px;
+            font-weight: 600
+        }
+        /* PRINT */
+        
+        @media print {
+            #sidebar {
+                display: none
+            }
+            #main {
+                margin-left: 0
+            }
+            #topbar {
+                display: none
+            }
+            .section {
+                display: block!important;
+                page-break-before: always
+            }
+        }
+        
+        @media(max-width:768px) {
+             :root {
+                --nav-w: 0px
+            }
+            #sidebar {
+                transform: translateX(-100%);
+                transition: transform .3s
+            }
+            #sidebar.open {
+                transform: translateX(0)
+            }
+            #main {
+                margin-left: 0
+            }
+            #menu-btn {
+                display: block!important
+            }
+        }
+        
+        #menu-btn {
+            display: none;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+        <div id="sidebar-header">
+            <h1>🎓 Guide DELF B2</h1>
+            <p>Version Excellence — Zéro Défaut</p>
+        </div>
+        <div id="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+        <div id="progress-label">Progression : <span id="pct">0%</span></div>
+        <nav>
+            <div class="nav-section">Accueil</div>
+            <a class="nav-item active" onclick="showSection('home')">🏠 Tableau de bord</a>
+
+            <div class="nav-section">Partie I — Langue</div>
+            <a class="nav-item" onclick="showSection('verbes')">📘 Verbes A2→B2 (20)</a>
+            <a class="nav-item" onclick="showSection('noms')">📙 Noms A2→B2 (20)</a>
+            <a class="nav-item" onclick="showSection('adjectifs')">📗 Adjectifs A2→B2 (20)</a>
+            <a class="nav-item" onclick="showSection('connecteurs')">🔗 Connecteurs logiques</a>
+            <a class="nav-item" onclick="showSection('subjonctif')">⚡ Subjonctif (20 ex.)</a>
+            <a class="nav-item" onclick="showSection('conditionnel')">💡 Conditionnel (20 ex.)</a>
+            <a class="nav-item" onclick="showSection('relief')">✨ Mise en relief</a>
+
+            <div class="nav-section">Partie II — Écrit</div>
+            <a class="nav-item" onclick="showSection('lettre')">✉️ Lettre formelle</a>
+            <a class="nav-item" onclick="showSection('article')">📰 Article d'opinion</a>
+            <a class="nav-item" onclick="showSection('essai')">📝 Essai argumentatif</a>
+            <a class="nav-item" onclick="showSection('checklist')">☑️ Check-list relecture</a>
+
+            <div class="nav-section">Partie III — Oral</div>
+            <a class="nav-item" onclick="showSection('monologue')">🎤 Structure monologue</a>
+            <a class="nav-item" onclick="showSection('debat')">💬 Stratégies de débat</a>
+            <a class="nav-item" onclick="showSection('expressions')">🗣️ Expressions orales</a>
+
+            <div class="nav-section">Partie IV — Compréhension</div>
+            <a class="nav-item" onclick="showSection('lecture')">👁️ Lecture rapide</a>
+            <a class="nav-item" onclick="showSection('pieges')">⚠️ Pièges classiques</a>
+            <a class="nav-item" onclick="showSection('vocabpresse')">📖 Vocabulaire presse</a>
+
+            <div class="nav-section">Partie V — Jury</div>
+            <a class="nav-item" onclick="showSection('grille')">📊 Grille officielle</a>
+            <a class="nav-item" onclick="showSection('erreurs')">❌ 10 erreurs fatales</a>
+            <a class="nav-item" onclick="showSection('strategies')">🏆 Stratégies +points</a>
+            <a class="nav-item" onclick="showSection('planning')">📅 Plan 4 semaines</a>
+
+            <div class="nav-section">Entraînement</div>
+            <a class="nav-item" onclick="showSection('quiz')">🧠 Quiz interactif</a>
+        </nav>
+    </div>
+
+    <!-- MAIN -->
+    <div id="main">
+        <div id="topbar">
+            <div style="display:flex;align-items:center;gap:12px">
+                <button id="menu-btn" onclick="toggleMenu()">☰</button>
+                <h2 id="topbar-title">Tableau de bord</h2>
+            </div>
+            <div id="topbar-right">
+                <button class="btn-top" onclick="window.print()">🖨️ Imprimer</button>
+                <button class="btn-top accent" onclick="showSection('quiz')">🧠 Quiz</button>
+            </div>
+        </div>
+
+        <!-- HOME -->
+        <div class="section active" id="sec-home">
+            <div class="hero">
+                <h1>Guide de Référence DELF B2 — Excellence Garantie</h1>
+                <p>Rédigé par un expert concepteur de sujets et membre du jury. Contient tout ce qu'il faut maîtriser pour obtenir la mention Très Bien.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><strong>60</strong><span>Exemples vocab</span></div>
+                    <div class="hero-stat"><strong>40</strong><span>Exemples gramm.</span></div>
+                    <div class="hero-stat"><strong>3</strong><span>Modèles rédigés</span></div>
+                    <div class="hero-stat"><strong>12+</strong><span>Check-lists</span></div>
+                    <div class="hero-stat"><strong>50+</strong><span>Expressions orales</span></div>
+                    <div class="hero-stat"><strong>20</strong><span>Sections</span></div>
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:28px">
+                <div class="card" style="cursor:pointer;border-top:3px solid #1A3C5E" onclick="showSection('verbes')">
+                    <div style="font-size:24px;margin-bottom:8px">📘</div>
+                    <div style="font-weight:700;color:var(--primary);font-size:14px">Lexique & Grammaire</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px">60 mots · 40 exemples grammaticaux · Mise en relief</div>
+                </div>
+                <div class="card" style="cursor:pointer;border-top:3px solid #1E6B3C" onclick="showSection('lettre')">
+                    <div style="font-size:24px;margin-bottom:8px">✍️</div>
+                    <div style="font-weight:700;color:var(--green);font-size:14px">Production Écrite</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px">Lettre · Article · Essai + check-list</div>
+                </div>
+                <div class="card" style="cursor:pointer;border-top:3px solid #C0550A" onclick="showSection('monologue')">
+                    <div style="font-size:24px;margin-bottom:8px">🎤</div>
+                    <div style="font-weight:700;color:var(--orange);font-size:14px">Production Orale</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px">Monologue · Débat · Expressions</div>
+                </div>
+                <div class="card" style="cursor:pointer;border-top:3px solid #5B2C6F" onclick="showSection('lecture')">
+                    <div style="font-size:24px;margin-bottom:8px">👁️</div>
+                    <div style="font-weight:700;color:var(--purple);font-size:14px">Compréhension</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px">Lecture rapide · Pièges · Vocabulaire</div>
+                </div>
+                <div class="card" style="cursor:pointer;border-top:3px solid #C0392B" onclick="showSection('grille')">
+                    <div style="font-size:24px;margin-bottom:8px">📊</div>
+                    <div style="font-weight:700;color:var(--accent);font-size:14px">Grille du Jury</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px">Critères officiels · Descripteurs</div>
+                </div>
+                <div class="card" style="cursor:pointer;border-top:3px solid #D4A017" onclick="showSection('quiz')">
+                    <div style="font-size:24px;margin-bottom:8px">🧠</div>
+                    <div style="font-weight:700;color:var(--gold);font-size:14px">Quiz Interactif</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px">Testez vos connaissances</div>
+                </div>
+
+                <div class="card" style="cursor:pointer;border-top:3px solid violet" onclick="window.location.href='B2.html'">
+                    <div style="font-size:24px;margin-bottom:8px ">🤷</div>
+                    <div style="font-weight:700;color:var(--gold);font-size:14px ">Arguments</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:4px ">exemples des arguments de delf B2 </div>
+                </div>
+
+            </div>
+            <div class="alert alert-blue "><strong>💡 Comment utiliser ce guide</strong>Naviguez via le menu latéral. Chaque section est indépendante. Commencez par apprendre le vocabulaire (Parties I), puis entraînez-vous sur les modèles (Partie II), préparez l'oral (Partie III),
+                et finissez par mémoriser la grille du jury (Partie V). Le quiz teste toutes les sections.</div>
+            <div class="alert alert-orange "><strong>⏱️ Plan de révision rapide</strong>Semaine 1 : Lexique + Grammaire · Semaine 2 : Production écrite (2 écrits/jour) · Semaine 3 : Oral (s'enregistrer) · Semaine 4 : Examens blancs complets</div>
+        </div>
+
+        <!-- VERBES -->
+        <div class="section " id="sec-verbes ">
+            <div class="card ">
+                <div class="card-title ">20 Verbes : Du Niveau A2/B1 au Niveau B2 Soutenu</div>
+                <div class="alert alert-blue " style="margin-bottom:12px "><strong>Principe clé</strong>Ces substitutions lexicales vous font gagner jusqu'à 2 points sur le critère "Étendue lexicale " (5 pts). Mémorisez-les par groupes de 5.</div>
+                <div class="tbl-wrap ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>A2/B1 (à éviter)</th>
+                                <th>B2 Soutenu (à utiliser)</th>
+                                <th>Registre</th>
+                                <th>Exemple en contexte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>parler de</td>
+                                <td>traiter de · aborder · évoquer</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Cet article traite des inégalités sociales avec rigueur.</td>
+                            </tr>
+                            <tr>
+                                <td>dire</td>
+                                <td>souligner · affirmer · avancer · énoncer</td>
+                                <td><span class="tag tag-b ">Soutenu</span></td>
+                                <td class="ex ">L'auteur souligne que la précarité touche toutes les classes.</td>
+                            </tr>
+                            <tr>
+                                <td>penser que</td>
+                                <td>estimer · considérer · juger · tenir que</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">Nous estimons que cette politique est insuffisante.</td>
+                            </tr>
+                            <tr>
+                                <td>montrer</td>
+                                <td>démontrer · mettre en évidence · révéler</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Cette étude démontre l'impact du numérique sur l'emploi.</td>
+                            </tr>
+                            <tr>
+                                <td>faire attention</td>
+                                <td>veiller à · prendre en compte · tenir compte de</td>
+                                <td><span class="tag tag-g ">Soutenu</span></td>
+                                <td class="ex ">Il convient de prendre en compte les effets à long terme.</td>
+                            </tr>
+                            <tr>
+                                <td>voir</td>
+                                <td>constater · observer · noter · relever</td>
+                                <td><span class="tag tag-b ">Objectif</span></td>
+                                <td class="ex ">On constate une nette augmentation du chômage des jeunes.</td>
+                            </tr>
+                            <tr>
+                                <td>aider</td>
+                                <td>contribuer à · favoriser · pallier · remédier à</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">Ces mesures contribuent à réduire les inégalités.</td>
+                            </tr>
+                            <tr>
+                                <td>utiliser</td>
+                                <td>recourir à · exploiter · mobiliser · mettre à profit</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Les chercheurs mobilisent des données issues du terrain.</td>
+                            </tr>
+                            <tr>
+                                <td>changer</td>
+                                <td>modifier · transformer · bouleverser · remodeler</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">Le numérique bouleverse nos modes de communication.</td>
+                            </tr>
+                            <tr>
+                                <td>avoir besoin de</td>
+                                <td>nécessiter · requérir · appeler à · exiger</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">Cette problématique requiert une réponse collective urgente.</td>
+                            </tr>
+                            <tr>
+                                <td>commencer</td>
+                                <td>amorcer · initier · impulser · engager</td>
+                                <td><span class="tag tag-g ">Soutenu</span></td>
+                                <td class="ex ">Le gouvernement a amorcé une réforme structurelle.</td>
+                            </tr>
+                            <tr>
+                                <td>finir</td>
+                                <td>aboutir à · parachever · conclure · déboucher sur</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Ces négociations ont abouti à un accord historique.</td>
+                            </tr>
+                            <tr>
+                                <td>critiquer</td>
+                                <td>remettre en cause · contester · dénoncer · réfuter</td>
+                                <td><span class="tag tag-r ">Engagé</span></td>
+                                <td class="ex ">De nombreux experts contestent la validité de ce modèle.</td>
+                            </tr>
+                            <tr>
+                                <td>s'occuper de</td>
+                                <td>se consacrer à · prendre en charge · gérer</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">L'État doit prendre en charge les plus vulnérables.</td>
+                            </tr>
+                            <tr>
+                                <td>essayer de</td>
+                                <td>s'efforcer de · tenter de · viser à · chercher à</td>
+                                <td><span class="tag tag-g ">Soutenu</span></td>
+                                <td class="ex ">Les autorités s'efforcent de contenir la propagation.</td>
+                            </tr>
+                            <tr>
+                                <td>savoir</td>
+                                <td>avoir conscience de · être conscient de · mesurer</td>
+                                <td><span class="tag tag-o ">Nuancé</span></td>
+                                <td class="ex ">Nous avons pleinement conscience des enjeux environnementaux.</td>
+                            </tr>
+                            <tr>
+                                <td>donner</td>
+                                <td>allouer · octroyer · attribuer · conférer</td>
+                                <td><span class="tag tag-b ">Administratif</span></td>
+                                <td class="ex ">Des subventions ont été allouées aux associations locales.</td>
+                            </tr>
+                            <tr>
+                                <td>créer</td>
+                                <td>instaurer · ériger · mettre en place · fonder</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">Il s'agit d'instaurer un dialogue entre les parties prenantes.</td>
+                            </tr>
+                            <tr>
+                                <td>rester</td>
+                                <td>demeurer · persister · subsister · perdurer</td>
+                                <td><span class="tag tag-g ">Soutenu</span></td>
+                                <td class="ex ">Des inégalités persistantes demeurent malgré les réformes.</td>
+                            </tr>
+                            <tr>
+                                <td>empêcher</td>
+                                <td>entraver · freiner · faire obstacle à · contrecarrer</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">La bureaucratie entrave le développement des start-ups.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOMS -->
+        <div class="section " id="sec-noms ">
+            <div class="card ">
+                <div class="card-title ">20 Noms : Du Niveau A2/B1 au Niveau B2 Soutenu</div>
+                <div class="tbl-wrap ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>A2/B1 (courant)</th>
+                                <th>B2 Soutenu</th>
+                                <th>Registre</th>
+                                <th>Exemple en contexte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>problème</td>
+                                <td>enjeu · problématique · défi</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">L'enjeu principal réside dans la transition énergétique.</td>
+                            </tr>
+                            <tr>
+                                <td>résultat</td>
+                                <td>conséquence · retombée · répercussion · incidence</td>
+                                <td><span class="tag tag-g ">Soutenu</span></td>
+                                <td class="ex ">Les répercussions économiques sont considérables.</td>
+                            </tr>
+                            <tr>
+                                <td>but</td>
+                                <td>objectif · finalité · dessein · visée</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">La finalité de ce projet est d'améliorer le cadre de vie.</td>
+                            </tr>
+                            <tr>
+                                <td>idée</td>
+                                <td>concept · notion · postulat · paradigme</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Ce postulat mérite d'être remis en question.</td>
+                            </tr>
+                            <tr>
+                                <td>changement</td>
+                                <td>mutation · évolution · bouleversement · refonte</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">La mutation numérique redéfinit le marché du travail.</td>
+                            </tr>
+                            <tr>
+                                <td>façon de faire</td>
+                                <td>démarche · approche · procédé · dispositif</td>
+                                <td><span class="tag tag-b ">Professionnel</span></td>
+                                <td class="ex ">Cette approche innovante a fait ses preuves.</td>
+                            </tr>
+                            <tr>
+                                <td>manque</td>
+                                <td>carence · déficit · insuffisance · lacune</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">La carence en logements abordables est préoccupante.</td>
+                            </tr>
+                            <tr>
+                                <td>hausse</td>
+                                <td>augmentation · progression · essor · montée en puissance</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">L'essor de l'économie circulaire est indéniable.</td>
+                            </tr>
+                            <tr>
+                                <td>baisse</td>
+                                <td>recul · déclin · diminution · érosion</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">Le recul de la biodiversité constitue une menace majeure.</td>
+                            </tr>
+                            <tr>
+                                <td>accord</td>
+                                <td>consensus · convergence · adhésion · entente</td>
+                                <td><span class="tag tag-b ">Diplomatique</span></td>
+                                <td class="ex ">Un consensus a émergé autour de cette proposition.</td>
+                            </tr>
+                            <tr>
+                                <td>risque</td>
+                                <td>péril · menace · vulnérabilité · aléa</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">La vulnérabilité des populations côtières est croissante.</td>
+                            </tr>
+                            <tr>
+                                <td>lien</td>
+                                <td>corrélation · interdépendance · corrélat · nexus</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Une corrélation a été établie entre stress et productivité.</td>
+                            </tr>
+                            <tr>
+                                <td>mesure (action)</td>
+                                <td>disposition · mécanisme · levier · dispositif</td>
+                                <td><span class="tag tag-o ">Politique</span></td>
+                                <td class="ex ">Ces leviers fiscaux permettent de réorienter l'économie.</td>
+                            </tr>
+                            <tr>
+                                <td>avantage</td>
+                                <td>atout · bénéfice · apport · plus-value</td>
+                                <td><span class="tag tag-g ">Positif</span></td>
+                                <td class="ex ">L'apport de la mixité sociale est indéniable.</td>
+                            </tr>
+                            <tr>
+                                <td>inconvénient</td>
+                                <td>limite · écueil · revers · bémol</td>
+                                <td><span class="tag tag-o ">Nuancé</span></td>
+                                <td class="ex ">Ce modèle présente néanmoins des écueils notables.</td>
+                            </tr>
+                            <tr>
+                                <td>choix</td>
+                                <td>alternative · arbitrage · option · parti pris</td>
+                                <td><span class="tag tag-b ">Décisionnel</span></td>
+                                <td class="ex ">Cet arbitrage budgétaire suscite de vives critiques.</td>
+                            </tr>
+                            <tr>
+                                <td>étude</td>
+                                <td>analyse · enquête · rapport · monographie</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Selon cette analyse approfondie, le taux d'échec diminue.</td>
+                            </tr>
+                            <tr>
+                                <td>question</td>
+                                <td>interrogation · questionnement · débat · thématique</td>
+                                <td><span class="tag tag-b ">Intellectuel</span></td>
+                                <td class="ex ">Ce questionnement éthique traverse toute la société.</td>
+                            </tr>
+                            <tr>
+                                <td>avis</td>
+                                <td>point de vue · position · conviction · prise de position</td>
+                                <td><span class="tag tag-o ">Argumentatif</span></td>
+                                <td class="ex ">Il importe de confronter des positions divergentes.</td>
+                            </tr>
+                            <tr>
+                                <td>tendance</td>
+                                <td>phénomène · dynamique · orientation · vecteur</td>
+                                <td><span class="tag tag-b ">Sociologique</span></td>
+                                <td class="ex ">Cette dynamique sociétale s'inscrit dans la durée.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADJECTIFS -->
+        <div class="section " id="sec-adjectifs ">
+            <div class="card ">
+                <div class="card-title ">20 Adjectifs : Du Niveau A2/B1 au Niveau B2 Soutenu</div>
+                <div class="tbl-wrap ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>A2/B1 (courant)</th>
+                                <th>B2 Soutenu</th>
+                                <th>Registre</th>
+                                <th>Exemple en contexte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>grand/gros</td>
+                                <td>considérable · majeur · substantiel · conséquent</td>
+                                <td><span class="tag tag-g ">Soutenu</span></td>
+                                <td class="ex ">Des efforts substantiels sont nécessaires.</td>
+                            </tr>
+                            <tr>
+                                <td>petit</td>
+                                <td>minime · négligeable · infime · modeste</td>
+                                <td><span class="tag tag-o ">Nuancé</span></td>
+                                <td class="ex ">L'impact environnemental reste infime à cette échelle.</td>
+                            </tr>
+                            <tr>
+                                <td>important</td>
+                                <td>primordial · fondamental · déterminant · capital</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">Le rôle de l'éducation est fondamental pour la cohésion.</td>
+                            </tr>
+                            <tr>
+                                <td>nouveau</td>
+                                <td>novateur · inédit · avant-gardiste · pionnier</td>
+                                <td><span class="tag tag-b ">Créatif</span></td>
+                                <td class="ex ">Ce procédé avant-gardiste révolutionne l'industrie.</td>
+                            </tr>
+                            <tr>
+                                <td>vieux/ancien</td>
+                                <td>vétuste · obsolète · désuet · archaïque</td>
+                                <td><span class="tag tag-r ">Critique</span></td>
+                                <td class="ex ">Ces infrastructures vétustes nécessitent une modernisation.</td>
+                            </tr>
+                            <tr>
+                                <td>difficile</td>
+                                <td>complexe · ardu · périlleux · épineux</td>
+                                <td><span class="tag tag-b ">Académique</span></td>
+                                <td class="ex ">La tâche s'avère particulièrement ardue.</td>
+                            </tr>
+                            <tr>
+                                <td>facile</td>
+                                <td>aisé · accessible · commode · à la portée de</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">Il n'est guère aisé de concilier croissance et équité.</td>
+                            </tr>
+                            <tr>
+                                <td>bon</td>
+                                <td>bénéfique · salutaire · avantageux · porteur</td>
+                                <td><span class="tag tag-g ">Positif</span></td>
+                                <td class="ex ">Cette réforme s'avère salutaire pour l'ensemble du secteur.</td>
+                            </tr>
+                            <tr>
+                                <td>mauvais</td>
+                                <td>préjudiciable · délétère · néfaste · dommageable</td>
+                                <td><span class="tag tag-g ">Formel</span></td>
+                                <td class="ex ">Cette politique a des effets néfastes sur l'emploi.</td>
+                            </tr>
+                            <tr>
+                                <td>certain (sûr)</td>
+                                <td>indéniable · avéré · incontestable · patent</td>
+                                <td><span class="tag tag-b ">Affirmatif</span></td>
+                                <td class="ex ">L'impact bénéfique de l'exercice physique est avéré.</td>
+                            </tr>
+                            <tr>
+                                <td>possible</td>
+                                <td>envisageable · plausible · potentiel · hypothétique</td>
+                                <td><span class="tag tag-o ">Nuancé</span></td>
+                                <td class="ex ">Un compromis demeure envisageable à court terme.</td>
+                            </tr>
+                            <tr>
+                                <td>rapide</td>
+                                <td>fulgurant · accéléré · soutenu · véloce</td>
+                                <td><span class="tag tag-b ">Dynamique</span></td>
+                                <td class="ex ">La croissance fulgurante du secteur numérique inquiète.</td>
+                            </tr>
+                            <tr>
+                                <td>lent</td>
+                                <td>progressif · graduel · mesuré · laborieux</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">Une transition graduelle s'impose pour limiter les risques.</td>
+                            </tr>
+                            <tr>
+                                <td>clair</td>
+                                <td>explicite · manifeste · éloquent · limpide</td>
+                                <td><span class="tag tag-o ">Précis</span></td>
+                                <td class="ex ">Les données sont éloquentes : le fossé se creuse.</td>
+                            </tr>
+                            <tr>
+                                <td>flou/vague</td>
+                                <td>ambigu · équivoque · lacunaire · nébuleux</td>
+                                <td><span class="tag tag-r ">Critique</span></td>
+                                <td class="ex ">La législation demeure lacunaire sur ce point crucial.</td>
+                            </tr>
+                            <tr>
+                                <td>différent</td>
+                                <td>distinct · hétérogène · divergent · disparate</td>
+                                <td><span class="tag tag-b ">Analytique</span></td>
+                                <td class="ex ">Les positions des parties prenantes sont divergentes.</td>
+                            </tr>
+                            <tr>
+                                <td>pareil/même</td>
+                                <td>analogue · similaire · comparable · homologue</td>
+                                <td><span class="tag tag-b ">Comparatif</span></td>
+                                <td class="ex ">Un phénomène analogue s'observe dans d'autres pays.</td>
+                            </tr>
+                            <tr>
+                                <td>nécessaire</td>
+                                <td>indispensable · impératif · incontournable · préalable</td>
+                                <td><span class="tag tag-o ">Prescriptif</span></td>
+                                <td class="ex ">Une réforme structurelle est désormais incontournable.</td>
+                            </tr>
+                            <tr>
+                                <td>inquiétant</td>
+                                <td>préoccupant · alarmant · critique · délétère</td>
+                                <td><span class="tag tag-r ">Émotionnel</span></td>
+                                <td class="ex ">La situation est particulièrement alarmante.</td>
+                            </tr>
+                            <tr>
+                                <td>intéressant</td>
+                                <td>pertinent · révélateur · édifiant · instructif</td>
+                                <td><span class="tag tag-b ">Intellectuel</span></td>
+                                <td class="ex ">Cette approche révèle des tensions édifiantes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONNECTEURS -->
+        <div class="section " id="sec-connecteurs ">
+            <div class="card ">
+                <div class="card-title ">Connecteurs Logiques par Fonction Discursive</div>
+                <div class="alert alert-orange "><strong>⚠️ Règle du jury</strong>Ne jamais utiliser "mais " plus de 2 fois par production. Variez systématiquement avec les connecteurs ci-dessous. Les examinateurs les repèrent immédiatement.</div>
+                <div class="tabs ">
+                    <button class="tab active " onclick="switchTab(this, 'avis') ">Avis</button>
+                    <button class="tab " onclick="switchTab(this, 'cause') ">Cause</button>
+                    <button class="tab " onclick="switchTab(this, 'csq') ">Conséquence</button>
+                    <button class="tab " onclick="switchTab(this, 'but') ">But</button>
+                    <button class="tab " onclick="switchTab(this, 'conc') ">Concession</button>
+                    <button class="tab " onclick="switchTab(this, 'add') ">Addition</button>
+                    <button class="tab " onclick="switchTab(this, 'illus') ">Illustration</button>
+                    <button class="tab " onclick="switchTab(this, 'refor') ">Reformulation</button>
+                </div>
+                <div class="tab-content active " id="tc-avis ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-blue ">À mon sens</span><span class="chip chip-blue ">Il me semble que</span><span class="chip chip-blue ">Force est de constater que</span><span class="chip chip-blue ">Il convient de souligner que</span>
+                        <span class="chip chip-blue ">Nous sommes en droit de nous interroger sur</span><span class="chip chip-blue ">Il est permis de penser que</span><span class="chip chip-blue ">Il appert que</span><span class="chip chip-blue ">Je suis d'avis que</span>
+                        <span class="chip chip-blue ">En ce qui me concerne</span>
+                        <span class="chip chip-blue ">Selon ma perspective</span><span class="chip chip-blue ">Il m'apparaît que</span><span class="chip chip-blue ">Je tiens à souligner que</span>
+                    </div>
+                    <div class="alert alert-blue "><strong>Exemple :</strong> « À mon sens, cette réforme, bien qu'ambitieuse, soulève des questions fondamentales quant à son financement. Il me semble que le débat n'a pas encore épuisé toutes ses dimensions. »</div>
+                </div>
+                <div class="tab-content " id="tc-cause ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-orange ">En raison de</span><span class="chip chip-orange ">Du fait que</span><span class="chip chip-orange ">Étant donné que</span><span class="chip chip-orange ">Vu que</span><span class="chip chip-orange ">Compte tenu de</span>
+                        <span class="chip chip-orange ">Eu égard à</span><span class="chip chip-orange ">À la lumière de</span><span class="chip chip-orange ">Sous l'effet de</span><span class="chip chip-orange ">Grâce à</span><span class="chip chip-orange ">Faute de</span>
+                        <span class="chip chip-orange ">Par suite de</span>
+                        <span class="chip chip-orange ">En conséquence directe de</span>
+                    </div>
+                    <div class="alert alert-orange "><strong>Exemple :</strong> « Eu égard aux difficultés économiques actuelles, et compte tenu de la fragilité du marché du travail, il semble impératif d'agir rapidement. »</div>
+                </div>
+                <div class="tab-content " id="tc-csq ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-purple ">Par conséquent</span><span class="chip chip-purple ">C'est pourquoi</span><span class="chip chip-purple ">Dès lors</span><span class="chip chip-purple ">Il s'ensuit que</span><span class="chip
+                    chip-purple ">D'où</span>
+                        <span class="chip chip-purple ">C'est ainsi que</span><span class="chip chip-purple ">Aussi (en tête)</span><span class="chip chip-purple ">De ce fait</span><span class="chip chip-purple
+                    ">Il en résulte que</span><span class="chip chip-purple ">Ce qui implique que</span>
+                        <span class="chip chip-purple ">Entraînant ainsi</span>
+                    </div>
+                    <div class="alert alert-purple "><strong>Exemple :</strong> « Le taux d'abandon scolaire a considérablement augmenté, d'où la nécessité de repenser les dispositifs d'accompagnement. Il en résulte que les inégalités se creusent dès le plus jeune âge. »</div>
+                </div>
+                <div class="tab-content " id="tc-but ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-green ">Afin de/que</span><span class="chip chip-green ">Dans le but de</span><span class="chip chip-green ">En vue de</span><span class="chip chip-green ">Pour que</span><span class="chip chip-green ">À cette fin</span>
+                        <span class="chip chip-green ">Dans cette perspective</span><span class="chip chip-green ">Dans l'optique de</span><span class="chip chip-green ">De sorte que</span><span class="chip chip-green
+                    ">De manière à</span><span class="chip chip-green ">Dans le dessein de</span>
+                    </div>
+                    <div class="alert alert-green "><strong>Exemple :</strong> « Dans l'optique d'une transition durable, et afin que les générations futures bénéficient d'un environnement sain, des investissements massifs s'imposent dès aujourd'hui. »</div>
+                </div>
+                <div class="tab-content " id="tc-conc ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-gray ">Certes… toutefois</span><span class="chip chip-gray ">Bien que + subj.</span><span class="chip chip-gray ">Quoique + subj.</span><span class="chip chip-gray ">Néanmoins</span><span class="chip chip-gray ">Cependant</span>
+                        <span class="chip chip-gray ">Or</span><span class="chip chip-gray ">Il n'en demeure pas moins que</span><span class="chip chip-gray ">En dépit de</span><span class="chip chip-gray ">Malgré</span><span class="chip chip-gray ">Pourtant</span>
+                        <span class="chip chip-gray ">Quand bien même + cond.</span>
+                    </div>
+                    <div class="alert alert-blue "><strong>Exemples avec subjonctif :</strong><br>« Bien que la situation soit préoccupante, des solutions existent. »<br>« Quoique ce modèle soit imparfait, il constitue une avancée notable. »<br>« Certes, les difficultés sont réelles
+                        ; néanmoins, elles ne sauraient justifier l'inaction. »</div>
+                </div>
+                <div class="tab-content " id="tc-add ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-blue ">De surcroît</span><span class="chip chip-blue ">Qui plus est</span><span class="chip chip-blue ">En outre</span><span class="chip chip-blue ">Par ailleurs</span><span class="chip chip-blue ">Voire</span>
+                        <span class="chip chip-blue ">Et ce d'autant plus que</span><span class="chip chip-blue ">Non seulement… mais encore</span><span class="chip chip-blue ">Ajoutons que</span><span class="chip chip-blue ">Il convient également de</span>
+                    </div>
+                </div>
+                <div class="tab-content " id="tc-illus ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-orange ">Ainsi</span><span class="chip chip-orange ">Par exemple</span><span class="chip chip-orange ">C'est le cas de</span><span class="chip chip-orange ">À titre illustratif</span><span class="chip chip-orange ">On peut citer</span>
+                        <span class="chip chip-orange ">Tel est le cas de</span><span class="chip chip-orange ">Comme en témoigne</span><span class="chip chip-orange ">À l'image de</span><span class="chip chip-orange ">Il suffit de mentionner</span>
+                    </div>
+                </div>
+                <div class="tab-content " id="tc-refor ">
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px ">
+                        <span class="chip chip-purple ">C'est-à-dire</span><span class="chip chip-purple ">Autrement dit</span><span class="chip chip-purple ">En d'autres termes</span><span class="chip chip-purple ">À savoir</span><span class="chip
+                    chip-purple ">Ce qui revient à dire que</span>
+                        <span class="chip chip-purple ">En clair</span><span class="chip chip-purple ">Plus précisément</span><span class="chip chip-purple ">Il faut entendre par là</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBJONCTIF -->
+        <div class="section " id="sec-subjonctif ">
+            <div class="card ">
+                <div class="card-title ">Le Subjonctif — 20 Exemples Essentiels</div>
+                <div class="alert alert-red "><strong>⚠️ Règle d'or</strong>Le subjonctif s'emploie après : volonté (vouloir que, souhaiter que), doute (douter que, ne pas penser que), sentiment (regretter que, être surpris que), nécessité (il faut que, il est essentiel que), et certaines
+                    conjonctions : bien que · afin que · pour que · quoique · à moins que · avant que · jusqu'à ce que · pourvu que.</div>
+                <div class="conj-grid ">
+                    <div class="conj-card ">
+                        <h4>Après « il est + adj. »</h4>
+                        <ul>
+                            <li>Il est indispensable que chaque citoyen <em>prenne</em> conscience de l'enjeu.</li>
+                            <li>Il est regrettable que le débat public <em>soit</em> si polarisé.</li>
+                            <li>Il est peu probable que cette tendance <em>s'inverse</em> sans intervention.</li>
+                            <li>Il est surprenant que si peu de ressources <em>soient</em> allouées.</li>
+                            <li>Il est essentiel que l'éducation <em>demeure</em> une priorité.</li>
+                        </ul>
+                    </div>
+                    <div class="conj-card ">
+                        <h4>Après conjonctions</h4>
+                        <ul>
+                            <li>Bien que la situation <em>soit</em> préoccupante, des solutions existent.</li>
+                            <li>Quoique ce modèle <em>soit</em> imparfait, il constitue une avancée.</li>
+                            <li>Afin que ces mesures <em>soient</em> efficaces, une coordination s'impose.</li>
+                            <li>Pour que la transition <em>réussisse</em>, tous les acteurs doivent s'impliquer.</li>
+                            <li>À moins que des réformes <em>soient</em> engagées rapidement…</li>
+                        </ul>
+                    </div>
+                    <div class="conj-card ">
+                        <h4>Après verbes de volonté/doute</h4>
+                        <ul>
+                            <li>Je doute que cette réforme <em>puisse</em> résoudre le problème seule.</li>
+                            <li>Nous souhaitons que les inégalités <em>diminuent</em> de façon substantielle.</li>
+                            <li>Il ne faudrait pas que cette polémique <em>occulte</em> les enjeux de fond.</li>
+                            <li>Je ne pense pas que la croissance <em>soit</em> compatible avec la durabilité.</li>
+                            <li>Nous réclamons que justice <em>soit</em> rendue dans les meilleurs délais.</li>
+                        </ul>
+                    </div>
+                    <div class="conj-card ">
+                        <h4>Superlatif + relatif</h4>
+                        <ul>
+                            <li>C'est le seul pays qui <em>ait</em> adopté cette législation avant-gardiste.</li>
+                            <li>C'est la solution la plus pertinente qui <em>soit</em> envisageable.</li>
+                            <li>Il importe que les données <em>soient</em> transparentes et accessibles.</li>
+                            <li>Pour peu que les conditions <em>soient</em> réunies, ce projet peut aboutir.</li>
+                            <li>Afin qu'un consensus <em>émerge</em>, il faut que chaque partie fasse des concessions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONDITIONNEL -->
+        <div class="section " id="sec-conditionnel ">
+            <div class="card ">
+                <div class="card-title ">Le Conditionnel — 20 Exemples Essentiels</div>
+                <div class="alert alert-green "><strong>✅ Règle d'or</strong>Si + IMPARFAIT → CONDITIONNEL PRÉSENT (hypothèse probable) · Si + PLUS-QUE-PARFAIT → CONDITIONNEL PASSÉ (hypothèse impossible) · Conditionnel seul = information non vérifiée (presse), demande polie, conseil
+                    atténué.
+                </div>
+                <div class="conj-grid ">
+                    <div class="conj-card ">
+                        <h4>Hypothèse (Si + imparfait)</h4>
+                        <ul>
+                            <li>Si les politiques étaient mieux coordonnées, les résultats <em>seraient</em> plus probants.</li>
+                            <li>Si le taux de chômage venait à dépasser ce seuil, les conséquences <em>seraient</em> dramatiques.</li>
+                            <li>Si cette tendance se confirmait, elle <em>remettrait</em> en cause les fondements du modèle social.</li>
+                            <li>Sans une volonté politique forte, ces réformes <em>resteraient</em> lettre morte.</li>
+                            <li>Si cette solution était appliquée, elle <em>réduirait</em> considérablement le taux de récidive.</li>
+                        </ul>
+                    </div>
+                    <div class="conj-card ">
+                        <h4>Conseil / Suggestion</h4>
+                        <ul>
+                            <li>Il <em>conviendrait</em> d'adopter une approche plus nuancée.</li>
+                            <li>Il <em>serait</em> hasardeux de tirer des conclusions hâtives.</li>
+                            <li>Il <em>serait</em> souhaitable que les gouvernements agissent de concert.</li>
+                            <li>Il <em>serait</em> judicieux de capitaliser sur les expériences locales.</li>
+                            <li>On <em>aurait</em> intérêt à consulter les parties prenantes avant tout.</li>
+                        </ul>
+                    </div>
+                    <div class="conj-card ">
+                        <h4>Information non vérifiée (presse)</h4>
+                        <ul>
+                            <li>Si l'on en croit certains experts, ce phénomène <em>s'intensifierait</em>.</li>
+                            <li>D'aucuns diraient que le progrès technique <em>résoudrait</em> tous nos problèmes.</li>
+                            <li>Selon des sources proches du dossier, un accord <em>serait</em> imminent.</li>
+                            <li>Ce rapport <em>aurait</em> mérité une diffusion plus large.</li>
+                            <li>Une telle réforme ne <em>saurait</em> aboutir sans large consensus.</li>
+                        </ul>
+                    </div>
+                    <div class="conj-card ">
+                        <h4>Hypothèse passée (Plus-que-parfait)</h4>
+                        <ul>
+                            <li>On <em>aurait pu</em> anticiper ces difficultés si les signaux avaient été pris au sérieux.</li>
+                            <li>Si la réforme <em>avait été</em> menée à bien, la situation <em>serait</em> bien différente.</li>
+                            <li>Ces mesures <em>auraient permis</em> d'éviter la crise si elles avaient été adoptées à temps.</li>
+                            <li>Il <em>aurait fallu</em> agir bien avant pour prévenir ces dérives.</li>
+                            <li>Une politique plus ambitieuse <em>aurait permis</em> d'atteindre les objectifs climatiques.</td>
+                                </tr>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MISE EN RELIEF -->
+        <div class="section " id="sec-relief ">
+            <div class="card ">
+                <div class="card-title ">Structures de Mise en Relief — Stylistique B2</div>
+                <div class="alert alert-purple "><strong>💡 Conseil du jury</strong>Utilisez au minimum 3 structures de mise en relief dans votre production écrite. Elles signalent immédiatement un niveau B2 et valorisent le critère "compétence lexicale et stylistique ".</div>
+                <div class="tbl-wrap ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Structure</th>
+                                <th>Exemple en contexte</th>
+                                <th>Effet rhétorique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ce qui… c'est</td>
+                                <td class="ex ">Ce qui est remarquable, c'est la rapidité avec laquelle les mentalités évoluent.</td>
+                                <td>Mise en valeur du sujet</td>
+                            </tr>
+                            <tr>
+                                <td>Ce que… c'est</td>
+                                <td class="ex ">Ce que l'on peut retenir de cette analyse, c'est l'interdépendance des facteurs.</td>
+                                <td>Focalisation sur l'objet</td>
+                            </tr>
+                            <tr>
+                                <td>C'est… qui/que</td>
+                                <td class="ex ">C'est la formation continue qui constitue le véritable levier de compétitivité.</td>
+                                <td>Emphase sur l'agent</td>
+                            </tr>
+                            <tr>
+                                <td>Ce dont il s'agit, c'est</td>
+                                <td class="ex ">Ce dont il s'agit, c'est de refonder le pacte social sur des bases équitables.</td>
+                                <td>Thématisation</td>
+                            </tr>
+                            <tr>
+                                <td>Là où le bât blesse, c'est</td>
+                                <td class="ex ">Là où le bât blesse, c'est précisément dans l'absence de volonté politique.</td>
+                                <td>Identification du problème</td>
+                            </tr>
+                            <tr>
+                                <td>C'est en cela que</td>
+                                <td class="ex ">C'est en cela que cette approche se distingue des précédentes tentatives.</td>
+                                <td>Distinction argumentative</td>
+                            </tr>
+                            <tr>
+                                <td>Il n'est pas anodin que</td>
+                                <td class="ex ">Il n'est pas anodin que cette mesure suscite autant de résistances.</td>
+                                <td>Signifiance implicite</td>
+                            </tr>
+                            <tr>
+                                <td>Force est de constater que</td>
+                                <td class="ex ">Force est de constater que le modèle actuel a atteint ses limites.</td>
+                                <td>Concession forcée</td>
+                            </tr>
+                            <tr>
+                                <td>Il y a lieu de s'interroger sur</td>
+                                <td class="ex ">Il y a lieu de s'interroger sur la pérennité de ce système.</td>
+                                <td>Questionnement académique</td>
+                            </tr>
+                            <tr>
+                                <td>Ce à quoi l'on assiste, c'est</td>
+                                <td class="ex ">Ce à quoi l'on assiste, c'est une recomposition du paysage politique.</td>
+                                <td>Observation distanciée</td>
+                            </tr>
+                            <tr>
+                                <td>Notons que / Soulignons que</td>
+                                <td class="ex ">Soulignons que cette évolution n'est pas sans conséquences sur le lien social.</td>
+                                <td>Mise en relief neutre</td>
+                            </tr>
+                            <tr>
+                                <td>Il importe de / Il s'avère que</td>
+                                <td class="ex ">Il s'avère que les résultats obtenus dépassent toutes les prévisions initiales.</td>
+                                <td>Constat objectif</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- LETTRE -->
+        <div class="section " id="sec-lettre ">
+            <div class="card ">
+                <div class="card-title ">La Lettre Formelle — Méthodologie Complète</div>
+                <div class="alert alert-blue "><strong>Structure obligatoire</strong>Coordonnées expéditeur (haut gauche) · Coordonnées destinataire (haut droite) · Ville + date · Objet : · Formule d'appel · Corps (3 paragraphes min.) · Formule de politesse complète · Signature</div>
+                <div class="tbl-wrap ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Élément</th>
+                                <th>Formules B2 recommandées</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Formule d'appel</td>
+                                <td>Madame, Monsieur, · Madame la Directrice, · Monsieur le Président, · À qui de droit,</td>
+                            </tr>
+                            <tr>
+                                <td>Raison du courrier</td>
+                                <td>Je me permets de vous adresser ce courrier afin de… · J'ai l'honneur de porter à votre connaissance… · Suite à [événement], je me vois dans l'obligation de…</td>
+                            </tr>
+                            <tr>
+                                <td>Exposer un problème</td>
+                                <td>Force est de constater que… · Cette situation, pour le moins préoccupante, … · Il m'apparaît indispensable de signaler que…</td>
+                            </tr>
+                            <tr>
+                                <td>Formuler une demande</td>
+                                <td>Je me permets dès lors de solliciter… · Je vous saurais gré de bien vouloir… · Il m'importerait que vous puissiez…</td>
+                            </tr>
+                            <tr>
+                                <td>Transition entre §§</td>
+                                <td>C'est pourquoi… · Il convient dès lors de… · Dans cette perspective… · Fort de ce constat…</td>
+                            </tr>
+                            <tr>
+                                <td>Formule de politesse</td>
+                                <td>Je vous prie d'agréer, [formule d'appel répétée], l'expression de mes salutations les plus distinguées. · Veuillez recevoir, [formule d'appel], l'assurance de ma considération distinguée.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="model-box " data-label="MODÈLE RÉDIGÉ — Lettre de réclamation (≈260 mots) ">
+                    <p style="text-align:right;color:var(--muted);font-size:12px ">Lyon, le 15 novembre 2025</p>
+                    <p><strong>Madame la Directrice, Monsieur le Directeur,</strong></p>
+                    <p>Je me permets de vous adresser ce courrier afin de vous faire part de ma profonde insatisfaction quant aux conditions d'accueil au sein de votre établissement. En effet, lors de ma visite du 10 novembre dernier, j'ai été contraint
+                        de patienter plus de deux heures avant d'être reçu, et ce, malgré un rendez-vous dûment confirmé.</p>
+                    <p>Cette situation, pour le moins regrettable, n'est malheureusement pas isolée. Plusieurs de mes collègues m'ont fait part de difficultés analogues, ce qui laisse à penser que cette défaillance est structurelle plutôt que ponctuelle.
+                        Il convient dès lors de s'interroger sur l'organisation interne de vos services.</p>
+                    <p>C'est pourquoi je me permets de solliciter, d'une part, une explication circonstanciée quant aux causes de ce dysfonctionnement et, d'autre part, la mise en place de mesures correctives concrètes afin que de tels manquements ne se
+                        reproduisent plus à l'avenir.</p>
+                    <p>Dans l'attente d'une réponse que j'espère favorable et diligente, je vous prie d'agréer, Madame la Directrice, Monsieur le Directeur, l'expression de mes salutations les plus distinguées.</p>
+                    <p><strong>Jean-Pierre Moreau</strong></p>
+                    <div class="model-meta ">🔍 Connecteurs utilisés : « afin de », « En effet », « dès lors », « C'est pourquoi », « d'une part… d'autre part », « afin que » (+ subjonctif). Registre soutenu. Formule de politesse complète. ≈260 mots.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTICLE -->
+        <div class="section " id="sec-article ">
+            <div class="card ">
+                <div class="card-title ">L'Article d'Opinion — Méthodologie Complète</div>
+                <div class="alert alert-green "><strong>Différence clé article vs essai</strong>L'article s'adresse à un lecteur de journal : ton plus vivant, titre accrocheur obligatoire, paragraphes courts, signature. L'essai est plus formel et académique, sans titre accrocheur ni
+                    signature.
+                </div>
+                <div class="tbl-wrap ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Partie</th>
+                                <th>Durée/Volume</th>
+                                <th>Conseils du jury</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Titre</td>
+                                <td>5-8 mots</td>
+                                <td>Question rhétorique, paradoxe, chiffre fort. Ex : « Intelligence artificielle : menace ou opportunité ? »</td>
+                            </tr>
+                            <tr>
+                                <td>Chapeau (lead)</td>
+                                <td>2-3 phrases</td>
+                                <td>Contextualiser + accrocher. Peut commencer par un fait marquant, une citation ou une statistique.</td>
+                            </tr>
+                            <tr>
+                                <td>§1 — Constat</td>
+                                <td>70-80 mots</td>
+                                <td>Exposer le phénomène avec données précises. Connecteurs : « Force est de constater que », « Il ressort que ».</td>
+                            </tr>
+                            <tr>
+                                <td>§2 — Analyse</td>
+                                <td>70-80 mots</td>
+                                <td>Pourquoi ce phénomène ? Quelles causes ? Connecteurs : « En effet », « Cela s'explique par le fait que ».</td>
+                            </tr>
+                            <tr>
+                                <td>§3 — Position</td>
+                                <td>70-80 mots</td>
+                                <td>Votre avis nuancé + perspective. Connecteurs : « À mon sens », « Néanmoins », « Il appartient de ».</td>
+                            </tr>
+                            <tr>
+                                <td>Conclusion</td>
+                                <td>2-3 phrases</td>
+                                <td>Reformulation + question ouverte ou appel à l'action.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="model-box " data-label="MODÈLE RÉDIGÉ — Article d 'opinion (≈260 mots)">
+                    <p style="text-align:center;font-weight:700;font-size:15px;color:var(--primary)">Le télétravail : miroir aux alouettes ou révolution salutaire ?</p>
+                    <p style="font-style:italic;color:var(--muted)">Depuis la crise sanitaire de 2020, le télétravail s'est imposé comme une réalité incontournable dans le monde professionnel. Mais derrière les discours enthousiastes se dissimule une réalité bien plus nuancée.</p>
+                    <p>Force est de constater que ce mode d'organisation a bouleversé nos habitudes de travail. Des études récentes démontrent que la productivité individuelle augmenterait de 13 % en moyenne, tandis que les temps de trajet — et leur cortège
+                        de stress — disparaissent. En outre, les entreprises réalisent des économies substantielles en matière d'immobilier.</p>
+                    <p>Néanmoins, il serait hasardeux d'idéaliser ce modèle. La frontière entre vie professionnelle et vie personnelle tend à s'estomper, générant une forme d'hyperconnexion préjudiciable à l'équilibre psychologique des salariés. Qui plus
+                        est, l'isolement social constitue un écueil majeur, susceptible de fragiliser le sentiment d'appartenance à l'entreprise.</p>
+                    <p>À mon sens, la solution réside dans un modèle hybride encadré, alliant flexibilité et présence collective. Il appartient désormais aux entreprises et aux législateurs de définir conjointement un cadre protecteur. Car ce qui est en
+                        jeu, c'est ni plus ni moins que la qualité de vie au travail pour des millions de personnes.</p>
+                    <p style="text-align:right;font-style:italic;font-size:12px;color:var(--muted)">— Émilie Rousseau, chroniqueuse</p>
+                    <div class="model-meta">🔍 Connecteurs B2 : « Force est de constater », « En outre », « Néanmoins », « Qui plus est », « À mon sens ». Mise en relief : « Ce qui est en jeu, c'est ». Titre interrogatif. ≈260 mots.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESSAI -->
+        <div class="section" id="sec-essai">
+            <div class="card">
+                <div class="card-title">L'Essai Argumentatif — Thèse / Antithèse / Synthèse</div>
+                <div class="alert alert-orange"><strong>Structure obligatoire</strong>Introduction (accroche + sujet + problématique + annonce du plan) → Partie I Thèse → Partie II Antithèse → Partie III Synthèse → Conclusion + ouverture.</div>
+                <div class="model-box" data-label="MODÈLE RÉDIGÉ — Essai (≈270 mots)">
+                    <p style="font-weight:700;color:var(--accent)">Sujet : L'intelligence artificielle constitue-t-elle une menace pour l'emploi ?</p>
+                    <p><strong>[Introduction]</strong> À l'heure où les algorithmes envahissent toutes les sphères de la société, la question de l'impact de l'intelligence artificielle sur le marché de l'emploi suscite de vifs débats. Constitue-t-elle une
+                        menace réelle ou, au contraire, un vecteur de renouveau ? Nous examinerons d'abord les risques indéniables avant d'en relativiser la portée, pour proposer enfin une lecture nuancée.</p>
+                    <p><strong>[Thèse — Les risques]</strong> Il est indéniable que l'automatisation menace un nombre considérable d'emplois répétitifs. Selon le Forum économique mondial, quelque 85 millions de postes pourraient être supprimés d'ici à 2025.
+                        Les secteurs de la logistique, de la banque et du secrétariat sont particulièrement vulnérables. C'est en cela que l'IA représente un défi social majeur, susceptible d'accentuer les inégalités existantes.</p>
+                    <p><strong>[Antithèse — La nuance]</strong> Néanmoins, il convient de nuancer ce tableau alarmiste. La même étude souligne que 97 millions de nouveaux emplois émergent parallèlement. L'histoire économique démontre que chaque révolution
+                        technologique a, in fine, créé davantage d'emplois qu'elle n'en a détruits, bien que la transition soit douloureuse pour les travailleurs les moins qualifiés.</p>
+                    <p><strong>[Synthèse + Conclusion]</strong> En définitive, l'IA n'est ni un sauveur ni un bourreau : c'est un outil dont l'impact dépend des politiques d'accompagnement mises en place. Reste à savoir si nos institutions auront la volonté
+                        de piloter cette mutation plutôt que de la subir.</p>
+                    <div class="model-meta">🔍 Subjonctif : « bien que la transition soit » · Conditionnel : « pourraient être supprimés » · Mise en relief : « C'est en cela que » · Connecteurs : « Néanmoins », « En définitive », « il convient de ». ≈270 mots.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHECKLIST -->
+        <div class="section" id="sec-checklist">
+            <div class="card">
+                <div class="card-title">☑️ Check-list de Relecture — 5 Dernières Minutes</div>
+                <div class="alert alert-red"><strong>⏱️ Règle absolue</strong>Consacrez impérativement les 5 dernières minutes à cette vérification. Cliquez sur chaque case pour la cocher. C'est ici que se gagnent ou se perdent 2 à 3 points.</div>
+                <ul class="checklist" id="checklist">
+                    <li id="cli-0">
+                        <div class="check-box" onclick="toggleCheck(0)"></div>
+                        <div class="item-text"><strong>Accord sujet-verbe</strong> — Vérifier chaque verbe et son sujet, même dans les propositions relatives.</div>
+                    </li>
+                    <li id="cli-1">
+                        <div class="check-box" onclick="toggleCheck(1)"></div>
+                        <div class="item-text"><strong>Accord des participes passés</strong> — Être/avoir, COD avant ou après, cas des pronominaux.</div>
+                    </li>
+                    <li id="cli-2">
+                        <div class="check-box" onclick="toggleCheck(2)"></div>
+                        <div class="item-text"><strong>Majuscules</strong> — Début de phrase, noms propres. Pas de majuscule après un point-virgule.</div>
+                    </li>
+                    <li id="cli-3">
+                        <div class="check-box" onclick="toggleCheck(3)"></div>
+                        <div class="item-text"><strong>Ponctuation française</strong> — Espace avant : ; ! ? · Guillemets français « … » · Pas de virgule avant « que ».</div>
+                    </li>
+                    <li id="cli-4">
+                        <div class="check-box" onclick="toggleCheck(4)"></div>
+                        <div class="item-text"><strong>Genre des noms</strong> — Le/la, un/une. Vérifier : le phénomène, la stratégie, le paradoxe, la problématique.</div>
+                    </li>
+                    <li id="cli-5">
+                        <div class="check-box" onclick="toggleCheck(5)"></div>
+                        <div class="item-text"><strong>Homophones</strong> — a/à · ou/où · ses/ces/s'est/c'est/sait · leur/leurs · on/ont · mais/mes.</div>
+                    </li>
+                    <li id="cli-6">
+                        <div class="check-box" onclick="toggleCheck(6)"></div>
+                        <div class="item-text"><strong>Subjonctif après expressions obligatoires</strong> — bien que / afin que / pour que / il faut que → mode correct ?</div>
+                    </li>
+                    <li id="cli-7">
+                        <div class="check-box" onclick="toggleCheck(7)"></div>
+                        <div class="item-text"><strong>Répétitions lexicales</strong> — Maximum 2 fois le même mot par paragraphe. Avez-vous utilisé des synonymes B2 ?</div>
+                    </li>
+                    <li id="cli-8">
+                        <div class="check-box" onclick="toggleCheck(8)"></div>
+                        <div class="item-text"><strong>Connecteurs variés</strong> — Avez-vous remplacé tous les "mais, donc, car" par des connecteurs B2 ?</div>
+                    </li>
+                    <li id="cli-9">
+                        <div class="check-box" onclick="toggleCheck(9)"></div>
+                        <div class="item-text"><strong>Longueur : 250 mots minimum</strong> — Comptez une dernière fois. Ajoutez un exemple si trop court.</div>
+                    </li>
+                    <li id="cli-10">
+                        <div class="check-box" onclick="toggleCheck(10)"></div>
+                        <div class="item-text"><strong>Formule de politesse complète</strong> (lettre) — Formule d'appel + expression de salutation + adjectif approprié.</div>
+                    </li>
+                    <li id="cli-11">
+                        <div class="check-box" onclick="toggleCheck(11)"></div>
+                        <div class="item-text"><strong>Conditionnel après « si »</strong> — Si + imparfait → conditionnel présent. Pas "si il viendrait" !</div>
+                    </li>
+                    <li id="cli-12">
+                        <div class="check-box" onclick="toggleCheck(12)"></div>
+                        <div class="item-text"><strong>Pallier (sans « à »)</strong> — "Pallier ce problème" ✓ · "Pallier à ce problème" ✗</div>
+                    </li>
+                    <li id="cli-13">
+                        <div class="check-box" onclick="toggleCheck(13)"></div>
+                        <div class="item-text"><strong>Lisibilité de l'écriture</strong> — Chaque lettre distincte. Ratures propres. Pas de flèches ni renvois.</div>
+                    </li>
+                </ul>
+                <div id="checklist-score" style="margin-top:16px;padding:12px 16px;background:#f0fdf4;border-radius:8px;font-size:13px;color:#166534;font-weight:600">Progression : <span id="cl-count">0</span>/14 points vérifiés</div>
+            </div>
+        </div>
+
+        <!-- MONOLOGUE -->
+        <div class="section" id="sec-monologue">
+            <div class="card">
+                <div class="card-title">Structure du Monologue — Plan Thèse / Antithèse / Synthèse</div>
+                <div class="alert alert-blue"><strong>Durée de l'épreuve</strong>3 minutes de préparation + 3 minutes d'exposé + 5-7 minutes de débat avec l'examinateur = 20 minutes au total. Les 3 minutes d'exposé doivent être chronométrées et équilibrées.</div>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot">1</div>
+                        <div class="tl-content">
+                            <span class="tl-time">⏱ 30-40 sec.</span>
+                            <h4>INTRODUCTION</h4>
+                            <p><strong>Contenu :</strong> Accroche percutante → contextualisation → problématique formulée clairement → annonce du plan en 2-3 parties.</p>
+                            <p><strong>Conseil :</strong> Apprenez 2 types d'accroches par cœur avant l'examen. Ne pas lire ses notes dès le début.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot">2</div>
+                        <div class="tl-content">
+                            <span class="tl-time">⏱ 60 sec.</span>
+                            <h4>THÈSE — Argument principal POUR</h4>
+                            <p><strong>Contenu :</strong> Idée directrice + 2 sous-arguments + exemple concret (actualité, étude, expérience) + phrase de transition.</p>
+                            <p><strong>Transition :</strong> « Néanmoins, si cette vision est séduisante, elle mérite d'être nuancée… »</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot">3</div>
+                        <div class="tl-content">
+                            <span class="tl-time">⏱ 60 sec.</span>
+                            <h4>ANTITHÈSE — Nuance ou argument CONTRE</h4>
+                            <p><strong>Contenu :</strong> Argument opposé ou limitatif + concession partielle + exemple + transition vers la synthèse.</p>
+                            <p><strong>Transition :</strong> « Dès lors, comment dépasser cette opposition ? Il semble que… »</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot">4</div>
+                        <div class="tl-content">
+                            <span class="tl-time">⏱ 25 sec.</span>
+                            <h4>SYNTHÈSE — Dépassement personnel</h4>
+                            <p><strong>Contenu :</strong> Votre position nuancée qui intègre les deux dimensions. Proposition ou perspective d'avenir.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot">5</div>
+                        <div class="tl-content">
+                            <span class="tl-time">⏱ 20 sec.</span>
+                            <h4>CONCLUSION + OUVERTURE</h4>
+                            <p><strong>Contenu :</strong> Réponse synthétique à la problématique + question ouverte sur une dimension plus large.</p>
+                            <p><strong>Exemple :</strong> « En définitive, ce débat nous rappelle que [réponse]. Reste à savoir si… »</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:20px">
+                    <div class="card-title">5 Types d'Accroches Percutantes</div>
+                    <div class="acc-item">
+                        <div class="acc-header" onclick="toggleAcc(this)">📊 Statistique d'impact <span class="ico">▼</span></div>
+                        <div class="acc-body">
+                            <p class="ex">« Saviez-vous que, selon l'OMS, plus d'un milliard de personnes souffrent de troubles mentaux ? Cette réalité méconnue nous amène à nous interroger sur les défaillances de nos systèmes de santé. »</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <div class="acc-header" onclick="toggleAcc(this)">❓ Question rhétorique <span class="ico">▼</span></div>
+                        <div class="acc-body">
+                            <p class="ex">« Peut-on réellement concilier croissance économique et préservation de l'environnement ? C'est la question cruciale que nous allons tenter d'élucider aujourd'hui. »</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <div class="acc-header" onclick="toggleAcc(this)">🔁 Paradoxe / Constat surprenant <span class="ico">▼</span></div>
+                        <div class="acc-body">
+                            <p class="ex">« Alors que nous n'avons jamais été aussi connectés, le sentiment de solitude n'a jamais été aussi répandu. Ce paradoxe au cœur de nos sociétés modernes est révélateur d'un malaise profond. »</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <div class="acc-header" onclick="toggleAcc(this)">📰 Actualité récente <span class="ico">▼</span></div>
+                        <div class="acc-body">
+                            <p class="ex">« L'actualité récente nous en fournit une illustration frappante : [fait d'actualité précis]. Ce phénomène soulève des questions fondamentales sur notre rapport à [thème]. »</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <div class="acc-header" onclick="toggleAcc(this)">✍️ Citation percutante <span class="ico">▼</span></div>
+                        <div class="acc-body">
+                            <p class="ex">« Einstein affirmait que les problèmes ne peuvent être résolus avec le même niveau de pensée qui les a créés. Cette réflexion s'applique parfaitement au défi que représente [sujet]. »</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEBAT -->
+        <div class="section" id="sec-debat">
+            <div class="card">
+                <div class="card-title">Stratégies de Débat — Expressions Essentielles</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Situation</th>
+                                <th>Expressions à employer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Interrompre poliment</td>
+                                <td>Je me permets de vous interrompre un instant… · Pardonnez-moi de vous couper la parole, mais… · Si vous me permettez d'intervenir sur ce point… · Permettez-moi d'apporter une précision…</td>
+                            </tr>
+                            <tr>
+                                <td>Demander une clarification</td>
+                                <td>Pourriez-vous préciser ce que vous entendez par… ? · Si je vous comprends bien, vous souhaitez dire que… ? · Qu'entendez-vous exactement par… ? · Votre argument mériterait d'être illustré par…</td>
+                            </tr>
+                            <tr>
+                                <td>Marquer son désaccord poliment</td>
+                                <td>Je ne partage pas tout à fait cette analyse… · Il me semble difficile de souscrire à cette position car… · Certes, cependant il convient de souligner que… · J'entends votre argument, néanmoins…</td>
+                            </tr>
+                            <tr>
+                                <td>Défendre fermement sa position</td>
+                                <td>Je maintiens que… · Ma position demeure que… · Permettez-moi d'insister sur le fait que… · Les données dont nous disposons confirment que… · Rien dans ce débat ne m'amène à réviser ma position sur…</td>
+                            </tr>
+                            <tr>
+                                <td>Concéder un point</td>
+                                <td>Vous avez raison de souligner ce point, il n'en demeure pas moins que… · Je vous accorde que… toutefois… · Certes… Toutefois, il serait réducteur de limiter l'analyse à… · Votre argument est recevable, mais…</td>
+                            </tr>
+                            <tr>
+                                <td>Synthétiser / Conclure</td>
+                                <td>En somme, ce débat nous révèle que… · Au terme de cette discussion, il apparaît que… · Pour conclure, ce qui est en jeu, c'est… · Il me semble que nous pouvons nous accorder sur…</td>
+                            </tr>
+                            <tr>
+                                <td>Reformuler l'argument adverse</td>
+                                <td>Si je résume votre position : vous estimez que… Est-ce bien cela ? · En d'autres termes, vous défendez l'idée selon laquelle… · Votre thèse centrale semble être que…</td>
+                            </tr>
+                            <tr>
+                                <td>Donner son avis avec nuance</td>
+                                <td>À mon sens, sans qu'il soit possible de l'affirmer avec certitude… · Il m'apparaît que, même si la question mérite d'être nuancée… · Sans prétendre avoir la réponse définitive, je considère que…</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPRESSIONS ORALES -->
+        <div class="section" id="sec-expressions">
+            <div class="card">
+                <div class="card-title">Expressions pour Gagner du Temps et Enchaîner</div>
+                <div class="alert alert-red"><strong>❌ À éviter absolument</strong>"euh…" · "ben…" · "bah…" · "c'est-à-dire que…" répété · "voilà" · "genre" · silences de plus de 3 secondes.</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Besoin communicatif</th>
+                                <th>Formules élégantes à employer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Reformuler une question</td>
+                                <td>Si je comprends bien votre question, vous me demandez de… / Cette question soulève un point qui mérite réflexion : …</td>
+                            </tr>
+                            <tr>
+                                <td>Exprimer la complexité</td>
+                                <td>La question est particulièrement complexe dans la mesure où… / Il convient de ne pas réduire ce débat à une simple alternative…</td>
+                            </tr>
+                            <tr>
+                                <td>Préciser sa pensée</td>
+                                <td>Permettez-moi de préciser ma pensée : … / Ce que je veux dire par là, c'est que… / Plus exactement, il s'agit de…</td>
+                            </tr>
+                            <tr>
+                                <td>Prendre position progressivement</td>
+                                <td>Au premier abord, on pourrait penser que… Cependant, en y réfléchissant davantage… / Si l'on adopte une perspective plus large…</td>
+                            </tr>
+                            <tr>
+                                <td>Enchaîner les idées</td>
+                                <td>Cela m'amène à… / Dans cette même logique, … / Fort de ce constat, … / Il découle de cela que…</td>
+                            </tr>
+                            <tr>
+                                <td>Illustrer son propos</td>
+                                <td>Prenons l'exemple de… / C'est notamment le cas de… / Il suffit d'observer… / Comme en témoigne…</td>
+                            </tr>
+                            <tr>
+                                <td>Introduire une nuance</td>
+                                <td>Encore faut-il préciser que… / Il importe toutefois de souligner que… / Cela dit, il serait réducteur de…</td>
+                            </tr>
+                            <tr>
+                                <td>Conclure un argument</td>
+                                <td>Il ressort de tout cela que… / En définitive, … / On peut donc affirmer que… / Ce qui revient à dire que…</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE RAPIDE -->
+        <div class="section" id="sec-lecture">
+            <div class="card">
+                <div class="card-title">Techniques de Lecture Rapide et Efficace</div>
+                <div class="alert alert-purple"><strong>Ordre stratégique de lecture</strong>Titre → Chapeau → 1ère/dernière phrase de chaque § → Connecteurs en début de § → Chiffres/noms propres → Lecture ciblée pour les questions.</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Étape</th>
+                                <th>Durée</th>
+                                <th>Ce que vous repérez</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. Titre + chapeau</td>
+                                <td>30 sec.</td>
+                                <td>Thème, cadre, position probable de l'auteur. C'est souvent là que se trouve la thèse principale.</td>
+                            </tr>
+                            <tr>
+                                <td>2. Première + dernière phrase de chaque §</td>
+                                <td>1 min.</td>
+                                <td>Idée directrice (début) et conclusion ou transition (fin). Donne la structure argumentative.</td>
+                            </tr>
+                            <tr>
+                                <td>3. Connecteurs en début de §</td>
+                                <td>30 sec.</td>
+                                <td>"Or", "Cependant", "Néanmoins" = retournement. "De plus", "En outre" = renforcement. "Ainsi" = conclusion.</td>
+                            </tr>
+                            <tr>
+                                <td>4. Chiffres, noms propres, dates</td>
+                                <td>30 sec.</td>
+                                <td>Ancres pour localiser rapidement les réponses aux questions factuelles précises.</td>
+                            </tr>
+                            <tr>
+                                <td>5. Lecture ciblée par question</td>
+                                <td>3-4 min.</td>
+                                <td>Relire uniquement la partie pertinente. Ne jamais répondre de mémoire : toujours vérifier dans le texte.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card" style="margin-top:20px">
+                    <div class="card-title">Connecteurs qui Changent le Sens d'un Paragraphe</div>
+                    <div class="tbl-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Connecteur(s)</th>
+                                    <th>Signal</th>
+                                    <th>Ce qui suit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mais · cependant · néanmoins · toutefois</td>
+                                    <td><span class="tag tag-r">Opposition</span></td>
+                                    <td>L'auteur va nuancer, contredire ou limiter ce qui précède.</td>
+                                </tr>
+                                <tr>
+                                    <td>donc · ainsi · par conséquent · dès lors</td>
+                                    <td><span class="tag tag-p">Conséquence</span></td>
+                                    <td>Ce qui suit est le résultat logique de ce qui précède.</td>
+                                </tr>
+                                <tr>
+                                    <td>car · parce que · puisque · étant donné que</td>
+                                    <td><span class="tag tag-o">Cause</span></td>
+                                    <td>Ce qui suit explique pourquoi ce qui précède est vrai.</td>
+                                </tr>
+                                <tr>
+                                    <td>de plus · en outre · qui plus est · d'ailleurs</td>
+                                    <td><span class="tag tag-b">Renforcement</span></td>
+                                    <td>Argument supplémentaire dans le même sens.</td>
+                                </tr>
+                                <tr>
+                                    <td>certes · il est vrai que · bien que</td>
+                                    <td><span class="tag tag-g">Concession</span></td>
+                                    <td>L'auteur reconnaît un point adverse avant de le nuancer.</td>
+                                </tr>
+                                <tr>
+                                    <td>or</td>
+                                    <td><span class="tag tag-r">Pivot rhétorique</span></td>
+                                    <td>Charnière très importante : change la direction du raisonnement.</td>
+                                </tr>
+                                <tr>
+                                    <td>en revanche · au contraire · à l'inverse</td>
+                                    <td><span class="tag tag-r">Opposition forte</span></td>
+                                    <td>Idée diamétralement opposée à ce qui précède.</td>
+                                </tr>
+                                <tr>
+                                    <td>en fait · en réalité · à vrai dire</td>
+                                    <td><span class="tag tag-o">Rectification</span></td>
+                                    <td>L'auteur corrige une idée reçue ou une apparence trompeuse.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PIEGES -->
+        <div class="section" id="sec-pieges">
+            <div class="card">
+                <div class="card-title">⚠️ Les 6 Pièges Classiques en Compréhension Écrite</div>
+                <div class="acc-item">
+                    <div class="acc-header" onclick="toggleAcc(this)">Piège 1 : L'information vraie mais hors-texte <span class="ico">▼</span></div>
+                    <div class="acc-body">
+                        <p>Même si une affirmation vous semble vraie dans la réalité, répondez <strong>uniquement à partir du texte</strong>. La réponse doit être DANS le document. Si vous ne pouvez pas localiser la ligne qui justifie votre réponse, elle
+                            est probablement fausse.</p>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header" onclick="toggleAcc(this)">Piège 2 : La paraphrase trompeuse dans les QCM <span class="ico">▼</span></div>
+                    <div class="acc-body">
+                        <p>Les QCM proposent souvent une reformulation presque exacte du texte — mais avec un seul mot changé qui inverse totalement le sens. <strong>Comparez mot par mot</strong> chaque proposition avec le texte original.</p>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header" onclick="toggleAcc(this)">Piège 3 : Le Vrai/Faux sans justification <span class="ico">▼</span></div>
+                    <div class="acc-body">
+                        <p>Certaines questions demandent la justification : sans citation précise et correctement localisée dans le texte, la réponse V/F ne vaut pas de point. Donnez toujours la ligne ou le paragraphe de référence.</p>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header" onclick="toggleAcc(this)">Piège 4 : L'opinion de l'auteur vs les faits <span class="ico">▼</span></div>
+                    <div class="acc-body">
+                        <p>Distinguez soigneusement : ce que l'auteur <strong>affirme</strong> (fait), ce qu'il <strong>cite d'un tiers</strong> (opinion rapportée avec "selon", "d'après"), et ce qu'il <strong>pense personnellement</strong> (usage du conditionnel,
+                            de "il me semble", "à mon avis").</p>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header" onclick="toggleAcc(this)">Piège 5 : Les négations et litotes <span class="ico">▼</span></div>
+                    <div class="acc-body">
+                        <p>Lisez lentement toute phrase contenant une double négation ou une litote. <strong>Exemples :</strong> "Il n'est pas sans ignorer" = il sait. "Ce n'est pas sans intérêt" = c'est intéressant. "Il ne manque pas de souligner" = il
+                            souligne.
+                        </p>
+                    </div>
+                </div>
+                <div class="acc-item">
+                    <div class="acc-header" onclick="toggleAcc(this)">Piège 6 : Copier sans comprendre <span class="ico">▼</span></div>
+                    <div class="acc-body">
+                        <p>Ne copiez jamais une phrase entière du texte. <strong>Reformulez avec vos mots</strong> pour montrer que vous comprenez. Recopier sans reformuler peut vous valoir 0 point même si la phrase est juste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VOCAB PRESSE -->
+        <div class="section" id="sec-vocabpresse">
+            <div class="card">
+                <div class="card-title">Vocabulaire du Discours Médiatique et Académique</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Terme / Expression</th>
+                                <th>Définition</th>
+                                <th>Usage en contexte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Étayer une thèse</td>
+                                <td>Appuyer un argument avec des preuves ou des exemples.</td>
+                                <td class="ex">L'auteur étaye sa thèse avec plusieurs études récentes.</td>
+                            </tr>
+                            <tr>
+                                <td>Corroborer</td>
+                                <td>Confirmer par une autre source.</td>
+                                <td class="ex">Ces données corroborent les conclusions de l'enquête précédente.</td>
+                            </tr>
+                            <tr>
+                                <td>Infirmer / réfuter</td>
+                                <td>Prouver que quelque chose est faux. ≠ confirmer.</td>
+                                <td class="ex">Les résultats infirment l'hypothèse initiale des chercheurs.</td>
+                            </tr>
+                            <tr>
+                                <td>Préconiser</td>
+                                <td>Recommander, conseiller officiellement.</td>
+                                <td class="ex">Le rapport préconise une réduction de 30 % des émissions.</td>
+                            </tr>
+                            <tr>
+                                <td>Prévaloir (se ~)</td>
+                                <td>Dominer, l'emporter.</td>
+                                <td class="ex">L'intérêt général doit prévaloir sur les intérêts particuliers.</td>
+                            </tr>
+                            <tr>
+                                <td>Mettre en exergue</td>
+                                <td>Souligner, mettre en valeur (= souligner).</td>
+                                <td class="ex">L'étude met en exergue les inégalités territoriales.</td>
+                            </tr>
+                            <tr>
+                                <td>Accréditer une thèse</td>
+                                <td>Donner de la crédibilité à une idée.</td>
+                                <td class="ex">Ces faits accréditent la thèse d'une crise systémique.</td>
+                            </tr>
+                            <tr>
+                                <td>Imputer à</td>
+                                <td>Attribuer une responsabilité à qqn/qqch.</td>
+                                <td class="ex">On impute cette hausse à la spéculation immobilière.</td>
+                            </tr>
+                            <tr>
+                                <td>Pallier (sans "à"!)</td>
+                                <td>Remédier à. Verbe transitif direct.</td>
+                                <td class="ex">Ces mesures visent à pallier les carences du système.</td>
+                            </tr>
+                            <tr>
+                                <td>Pragmatique</td>
+                                <td>Qui privilégie l'efficacité pratique sur la théorie.</td>
+                                <td class="ex">Une approche pragmatique s'impose face à cette urgence.</td>
+                            </tr>
+                            <tr>
+                                <td>Endémique</td>
+                                <td>Propre à une région ou persistant dans un groupe.</td>
+                                <td class="ex">Le chômage des jeunes est devenu un phénomène endémique.</td>
+                            </tr>
+                            <tr>
+                                <td>Prégnant(e)</td>
+                                <td>Qui s'impose fortement à l'esprit.</td>
+                                <td class="ex">Une influence prégnante sur l'ensemble de la société.</td>
+                            </tr>
+                            <tr>
+                                <td>Exacerber</td>
+                                <td>Aggraver, intensifier à l'extrême.</td>
+                                <td class="ex">La crise a exacerbé les tensions sociales existantes.</td>
+                            </tr>
+                            <tr>
+                                <td>Paradigme</td>
+                                <td>Modèle de référence dominant dans un domaine.</td>
+                                <td class="ex">Un changement de paradigme s'impose dans le secteur.</td>
+                            </tr>
+                            <tr>
+                                <td>Ubiquité</td>
+                                <td>Présence simultanée en de nombreux endroits.</td>
+                                <td class="ex">L'ubiquité du numérique remodèle nos comportements.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRILLE -->
+        <div class="section" id="sec-grille">
+            <div class="card">
+                <div class="card-title">📊 Grille Officielle du Jury — Production Écrite (/25)</div>
+                <div class="alert alert-blue"><strong>Note de passage</strong>12,5/25 pour chaque épreuve. Note éliminatoire (NSF) si vous obtenez moins de 5/25. Chaque critère est noté sur 5 points.</div>
+                <div class="score-grid">
+                    <div class="score-cell sc5"><strong>5/5</strong>Excellent</div>
+                    <div class="score-cell sc4"><strong>4/5</strong>Bien</div>
+                    <div class="score-cell sc3"><strong>3/5</strong>Assez bien</div>
+                    <div class="score-cell sc2"><strong>2/5</strong>Insuffisant</div>
+                    <div class="score-cell sc1"><strong>1/5</strong>Très insuf.</div>
+                </div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Critère</th>
+                                <th style="text-align:center">/25</th>
+                                <th>Comment maximiser</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Respect de la consigne</td>
+                                <td style="text-align:center;font-weight:700;color:var(--accent)">/5</td>
+                                <td>Répondre exactement à la demande. Type de texte correct, longueur respectée, destinataire adapté.</td>
+                            </tr>
+                            <tr>
+                                <td>Cohérence et cohésion</td>
+                                <td style="text-align:center;font-weight:700;color:var(--accent)">/5</td>
+                                <td>Plan logique, connecteurs variés, pas de hors-sujet. C'est le critère le plus facile à maîtriser.</td>
+                            </tr>
+                            <tr>
+                                <td>Compétence lexicale</td>
+                                <td style="text-align:center;font-weight:700;color:var(--accent)">/5</td>
+                                <td>Richesse, variété, précision. Utilisez les tableaux de vocabulaire B2 de ce guide.</td>
+                            </tr>
+                            <tr>
+                                <td>Compétence grammaticale</td>
+                                <td style="text-align:center;font-weight:700;color:var(--accent)">/5</td>
+                                <td>Phrases complexes, subjonctif, conditionnel, accords. Vérification systématique à la fin.</td>
+                            </tr>
+                            <tr>
+                                <td>Orthographe</td>
+                                <td style="text-align:center;font-weight:700;color:var(--accent)">/5</td>
+                                <td>Très sanctionnée. Une erreur grave = -0,5 pt. Check-list de relecture obligatoire !</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-title" style="margin-top:20px">📊 Grille Officielle du Jury — Production Orale (/25)</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Critère</th>
+                                <th style="text-align:center">/25</th>
+                                <th>Comment maximiser</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aisance et fluidité</td>
+                                <td style="text-align:center;font-weight:700;color:var(--green)">/5</td>
+                                <td>Parler sans longues interruptions. Expressions de transition à la place des "euh".</td>
+                            </tr>
+                            <tr>
+                                <td>Cohérence du discours</td>
+                                <td style="text-align:center;font-weight:700;color:var(--green)">/5</td>
+                                <td>Plan clair annoncé, idées organisées, introduction et conclusion présentes et distinctes.</td>
+                            </tr>
+                            <tr>
+                                <td>Étendue lexicale</td>
+                                <td style="text-align:center;font-weight:700;color:var(--green)">/5</td>
+                                <td>Vocabulaire varié et précis. Synonymes B2, mise en relief, expressions académiques.</td>
+                            </tr>
+                            <tr>
+                                <td>Correction grammaticale</td>
+                                <td style="text-align:center;font-weight:700;color:var(--green)">/5</td>
+                                <td>Subjonctif, conditionnel, concordance des temps. S'entraîner à voix haute avec un chronomètre.</td>
+                            </tr>
+                            <tr>
+                                <td>Phonologie et intonation</td>
+                                <td style="text-align:center;font-weight:700;color:var(--green)">/5</td>
+                                <td>Liaisons, intonation, prosodie. Articuler clairement. Débit régulier, ni trop lent ni trop rapide.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERREURS -->
+        <div class="section" id="sec-erreurs">
+            <div class="card">
+                <div class="card-title">❌ Les 10 Erreurs les Plus Sanctionnées au DELF B2</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Erreur fatale</th>
+                                <th>Exemple fautif</th>
+                                <th>Correction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center">1</td>
+                                <td>Confusion subjonctif / indicatif</td>
+                                <td style="color:var(--accent)">Bien qu'il <em>fait</em> beau ❌</td>
+                                <td style="color:var(--green)">Bien qu'il <strong>fasse</strong> beau ✓</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">2</td>
+                                <td>Accord du participe passé avec avoir</td>
+                                <td style="color:var(--accent)">Les mesures que j'ai <em>pris</em> ❌</td>
+                                <td style="color:var(--green)">Les mesures que j'ai <strong>prises</strong> ✓ (COD avant)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">3</td>
+                                <td>Absence de majuscule après point</td>
+                                <td style="color:var(--accent)">...sujet. <em>les</em> résultats ❌</td>
+                                <td style="color:var(--green)">...sujet. <strong>Les</strong> résultats ✓</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">4</td>
+                                <td>Confusion "pallier" + "à"</td>
+                                <td style="color:var(--accent)">Pour pallier <em>à</em> ce problème ❌</td>
+                                <td style="color:var(--green)">Pour pallier ce problème ✓ (verbe transitif direct)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">5</td>
+                                <td>Répétition du même mot</td>
+                                <td style="color:var(--accent)">Ce problème est un problème... ❌</td>
+                                <td style="color:var(--green)">Cet enjeu, cette problématique... ✓ (synonymes B2)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">6</td>
+                                <td>Conditionnel après "si"</td>
+                                <td style="color:var(--accent)">Si il <em>viendrait</em> ❌</td>
+                                <td style="color:var(--green)">S'il <strong>venait</strong> (imparfait) → conditionnel dans la principale ✓</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">7</td>
+                                <td>Lettre sans formule de politesse</td>
+                                <td style="color:var(--accent)">Cordialement, Jean ❌</td>
+                                <td style="color:var(--green)">Je vous prie d'agréer, [formule d'appel], l'expression de mes salutations distinguées. ✓</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">8</td>
+                                <td>Concordance des temps (discours indirect)</td>
+                                <td style="color:var(--accent)">Il a dit qu'il <em>vient</em> ❌</td>
+                                <td style="color:var(--green)">Il a dit qu'il <strong>viendrait</strong> ✓ (concordance au passé)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">9</td>
+                                <td>Guillemets et ponctuation française</td>
+                                <td style="color:var(--accent)">il dit: "Bonjour" ❌</td>
+                                <td style="color:var(--green)">il dit : « Bonjour » ✓ (espace avant : et guillemets fr.)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center">10</td>
+                                <td>Production trop courte</td>
+                                <td style="color:var(--accent)">Moins de 220 mots ❌</td>
+                                <td style="color:var(--green)">Compter systématiquement. Minimum 250 mots impératif ✓</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRATEGIES -->
+        <div class="section" id="sec-strategies">
+            <div class="card">
+                <div class="card-title">🏆 8 Stratégies pour Maximiser Votre Score</div>
+                <div class="strat-grid">
+                    <div class="strat-card">
+                        <div class="sc-icon">📚</div><span class="pts">+2/+3 pts</span>
+                        <h4>Substitutions lexicales</h4>
+                        <p>Remplacez SYSTÉMATIQUEMENT les mots courants par les synonymes B2 du tableau. Gain immédiat sur le critère lexique.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">🔗</div><span class="pts">+1/+2 pts</span>
+                        <h4>Varier les connecteurs</h4>
+                        <p>Ne jamais utiliser "mais" plus de 2 fois. Remplacez par "néanmoins", "cependant", "or". Les examinateurs les comptent.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">⚡</div><span class="pts">+1 pt</span>
+                        <h4>Subjonctif + Conditionnel</h4>
+                        <p>Placez au minimum 2 subjonctifs et 2 conditionnels. Les examinateurs les repèrent et les valorisent explicitement.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">✨</div><span class="pts">+1 pt</span>
+                        <h4>Mise en relief</h4>
+                        <p>Utilisez "Ce qui… c'est", "C'est… qui", "Force est de constater". Cela valorise immédiatement le style.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">📏</div><span class="pts">+0,5 pt</span>
+                        <h4>Longueur exacte</h4>
+                        <p>Ne jamais rester sous 250 mots. Visez 265-280 mots pour être confortable et avoir une marge de sécurité.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">🎤</div><span class="pts">+1 pt oral</span>
+                        <h4>Accroche percutante</h4>
+                        <p>Les 30 premières secondes impressionnent le jury. Apprenez par cœur 2 types d'accroches avant l'examen.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">🌀</div><span class="pts">+0,5 pt</span>
+                        <h4>Conclusion avec ouverture</h4>
+                        <p>Terminez toujours sur une question ouverte ou une perspective. Cela démontre la maturité intellectuelle attendue.</p>
+                    </div>
+                    <div class="strat-card">
+                        <div class="sc-icon">🔍</div><span class="pts">-1 pt évité</span>
+                        <h4>Chasse aux répétitions</h4>
+                        <p>Relire en cherchant les mots répétés. Chaque répétition coûte des points sur le critère lexical (5 pts).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLANNING -->
+        <div class="section" id="sec-planning">
+            <div class="card">
+                <div class="card-title">📅 Plan de Préparation en 4 Semaines</div>
+                <div class="tbl-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Semaine</th>
+                                <th>Objectifs quotidiens</th>
+                                <th>Durée/jour</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background:#dbeafe;color:#1e40af;font-weight:700">Semaine 1<br>Fondamentaux</td>
+                                <td>• Mémoriser 10 verbes + 10 noms + 10 adjectifs B2/jour (tableaux section I)<br>• Recopier les 20 exemples de subjonctif à voix haute<br>• Lire un article de presse française (400 mots), identifier tous les connecteurs<br>•
+                                    Réécrire 2 paragraphes en substituant le vocabulaire A2 par du B2</td>
+                                <td>1h30</td>
+                            </tr>
+                            <tr>
+                                <td style="background:#dcfce7;color:#166534;font-weight:700">Semaine 2<br>Production écrite</td>
+                                <td>• Rédiger une lettre formelle complète (minuterie : 30 min.)<br>• Corriger avec la check-list de relecture (section checklist)<br>• Rédiger un article d'opinion avec 5 connecteurs différents minimum<br>• S'entraîner sur
+                                    l'introduction + conclusion d'un essai (plan thèse/antithèse)</td>
+                                <td>2h00</td>
+                            </tr>
+                            <tr>
+                                <td style="background:#ffedd5;color:#9a3412;font-weight:700">Semaine 3<br>Oral</td>
+                                <td>• S'enregistrer en monologue de 3 minutes sur 3 sujets différents<br>• Réécouter et identifier les "euh", répétitions, pauses longues<br>• Mémoriser 3 accroches percutantes + 5 expressions de débat<br>• Simuler un débat
+                                    avec un camarade ou face au miroir (5 min.)</td>
+                                <td>1h45</td>
+                            </tr>
+                            <tr>
+                                <td style="background:#f3e8ff;color:#7c3aed;font-weight:700">Semaine 4<br>Consolidation</td>
+                                <td>• Passer un examen blanc complet en conditions réelles (3h30 tout inclus)<br>• Réviser les 10 erreurs les plus sanctionnées et la grille du jury<br>• Vérifier que chaque critère de notation est maîtrisé<br>• Tests croisés
+                                    sur le vocabulaire B2 · Bon repos la veille !</td>
+                                <td>3h00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-green" style="margin-top:16px"><strong>🏆 Message du jury</strong>Le DELF B2 n'évalue pas votre intelligence — il évalue votre capacité à communiquer en français avec précision, nuance et cohérence. Chaque point de ce guide correspond à un critère observable et mesurable.
+                    La différence entre un candidat ordinaire et un candidat d'excellence ne tient pas au génie, mais à la méthode et à la constance. Vous avez désormais la méthode. Bonne chance !</div>
+            </div>
+        </div>
+
+        <!-- QUIZ -->
+        <div class="section" id="sec-quiz">
+            <div class="card">
+                <div class="card-title">🧠 Quiz Interactif — Testez vos Connaissances DELF B2</div>
+                <div id="quiz-container"></div>
+                <button onclick="submitQuiz()" style="background:var(--primary);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:14px;cursor:pointer;margin-top:12px;font-weight:600">Valider mes réponses</button>
+                <div class="quiz-score" id="quiz-score"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end main -->
+
+    <script>
+        var quizData = [{
+            q: "Quelle est la forme correcte ?",
+            opts: ["Bien qu'il fait beau", "Bien qu'il fasse beau", "Bien qu'il ferait beau", "Bien qu'il a fait beau"],
+            a: 1,
+            exp: "Après 'bien que', le subjonctif est obligatoire : 'fasse' (subjonctif présent de 'faire')."
+        }, {
+            q: "Quel connecteur indique une CONSÉQUENCE ?",
+            opts: ["En revanche", "Certes", "Par conséquent", "Bien que"],
+            a: 2,
+            exp: "'Par conséquent' introduit une conséquence. 'En revanche' = opposition, 'Certes' = concession, 'Bien que' = subjonctif/opposition."
+        }, {
+            q: "Quel synonyme B2 de 'montrer' est le plus académique ?",
+            opts: ["Afficher", "Démontrer", "Présenter", "Faire voir"],
+            a: 1,
+            exp: "'Démontrer' est le terme académique par excellence pour 'montrer avec preuves'. On dit : 'Cette étude démontre que…'"
+        }, {
+            q: "Quelle phrase contient une erreur ?",
+            opts: ["Il conviendrait d'adopter une approche nuancée", "Si elle venait, nous serions contents", "Pour pallier à ce manque, des mesures s'imposent", "Force est de constater que le modèle a des limites"],
+            a: 2,
+            exp: "'Pallier' est un verbe TRANSITIF DIRECT. On dit 'pallier ce manque', jamais 'pallier À ce manque'. C'est une erreur très sanctionnée."
+        }, {
+            q: "Dans une lettre formelle, quelle formule de politesse est correcte ?",
+            opts: ["Cordialement", "Bonne journée", "Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées", "Avec mes amités"],
+            a: 2,
+            exp: "La formule de politesse d'une lettre formelle doit répéter la formule d'appel et utiliser 'l'expression de mes salutations/sentiments distingués'."
+        }, {
+            q: "Quel connecteur signale un RETOURNEMENT rhétorique important ?",
+            opts: ["De plus", "Or", "Ainsi", "En effet"],
+            a: 1,
+            exp: "'Or' est un connecteur pivot très puissant qui introduit un fait nouveau changeant la direction du raisonnement. Très fréquent dans les textes de presse et académiques."
+        }, {
+            q: "Quel synonyme B2 remplace 'problème' de façon la plus académique ?",
+            opts: ["Souci", "Truc", "Enjeu", "Chose"],
+            a: 2,
+            exp: "'Enjeu' est le terme académique pour désigner un problème important avec des conséquences. On dit : 'L'enjeu principal réside dans…'"
+        }, {
+            q: "Comment accorder : 'Les mesures que nous avons ___' (prendre) ?",
+            opts: ["pris", "prise", "prises", "prisé"],
+            a: 2,
+            exp: "Le COD 'les mesures' est AVANT le verbe 'avoir' → le participe passé s'accorde avec ce COD féminin pluriel : 'prises'."
+        }, {
+            q: "Quelle structure est une MISE EN RELIEF B2 ?",
+            opts: ["Je pense que c'est important", "C'est l'éducation qui constitue le vrai levier", "L'éducation est importante", "On doit penser à l'éducation"],
+            a: 1,
+            exp: "'C'est… qui/que' est une structure de mise en relief typiquement B2. Elle focalise l'attention sur un élément précis de la phrase."
+        }, {
+            q: "Quelle est la durée minimale d'une production écrite au DELF B2 ?",
+            opts: ["150 mots", "200 mots", "250 mots", "300 mots"],
+            a: 2,
+            exp: "250 mots est le minimum requis pour la production personnelle au DELF B2. En dessous, vous perdez des points sur le critère 'Respect de la consigne'."
+        }, ];
+
+        function buildQuiz() {
+            var html = '';
+            quizData.forEach(function(q, i) {
+                html += '<div class="quiz-q" id="qq' + i + '"><p>' + (i + 1) + '. ' + q.q + '</p>';
+                q.opts.forEach(function(o, j) {
+                    html += '<button class="quiz-opt" id="qo' + i + '-' + j + '" onclick="selectOpt(' + i + ',' + j + ')">' + o + '</button>';
+                });
+                html += '<div class="quiz-feedback" id="qf' + i + '"></div></div>';
+            });
+            document.getElementById('quiz-container').innerHTML = html;
+        }
+
+        var selected = {};
+
+        function selectOpt(qi, oi) {
+            if (selected[qi] !== undefined) return;
+            selected[qi] = oi;
+            quizData[qi].opts.forEach(function(_, j) {
+                document.getElementById('qo' + qi + '-' + j).style.opacity = '0.5';
+            });
+            document.getElementById('qo' + qi + '-' + oi).style.opacity = '1';
+            document.getElementById('qo' + qi + '-' + oi).style.borderColor = 'var(--secondary)';
+        }
+
+        function submitQuiz() {
+            var score = 0;
+            quizData.forEach(function(q, i) {
+                var ans = selected[i];
+                var fb = document.getElementById('qf' + i);
+                if (ans === undefined) {
+                    fb.style.display = 'block';
+                    fb.style.background = '#fef9c3';
+                    fb.style.color = '#854d0e';
+                    fb.style.padding = '8px 12px';
+                    fb.style.borderRadius = '6px';
+                    fb.textContent = '⚠️ Non répondu. Bonne réponse : ' + q.opts[q.a];
+                    return;
+                }
+                if (ans === q.a) {
+                    score++;
+                    document.getElementById('qo' + i + '-' + ans).className = 'quiz-opt correct';
+                    fb.style.display = 'block';
+                    fb.style.background = '#f0fdf4';
+                    fb.style.color = '#166534';
+                    fb.style.padding = '8px 12px';
+                    fb.style.borderRadius = '6px';
+                    fb.textContent = '✅ Correct ! ' + q.exp;
+                } else {
+                    document.getElementById('qo' + i + '-' + ans).className = 'quiz-opt wrong';
+                    document.getElementById('qo' + i + '-' + q.a).className = 'quiz-opt correct';
+                    fb.style.display = 'block';
+                    fb.style.background = '#fef2f2';
+                    fb.style.color = '#991b1b';
+                    fb.style.padding = '8px 12px';
+                    fb.style.borderRadius = '6px';
+                    fb.textContent = '❌ Incorrect. ' + q.exp;
+                }
+            });
+            var s = document.getElementById('quiz-score');
+            var pct = Math.round(score / quizData.length * 100);
+            s.style.display = 'block';
+            var msg = pct >= 80 ? '🏆 Excellent ! Vous êtes prêt(e) pour l\'examen !' : pct >= 60 ? '👍 Bien ! Révisez les points manqués.' : '📚 Continuez à réviser — consultez les sections correspondantes.';
+            s.textContent = score + '/' + quizData.length + ' (' + pct + '%) — ' + msg;
+            s.style.background = pct >= 80 ? 'var(--green)' : pct >= 60 ? 'var(--gold)' : 'var(--accent)';
+            s.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        var sections = ['home', 'verbes', 'noms', 'adjectifs', 'connecteurs', 'subjonctif', 'conditionnel', 'relief', 'lettre', 'article', 'essai', 'checklist', 'monologue', 'debat', 'expressions', 'lecture', 'pieges', 'vocabpresse', 'grille', 'erreurs', 'strategies', 'planning', 'quiz'];
+        var titles = {
+            'home': 'Tableau de bord',
+            'verbes': 'Verbes A2→B2',
+            'noms': 'Noms A2→B2',
+            'adjectifs': 'Adjectifs A2→B2',
+            'connecteurs': 'Connecteurs logiques',
+            'subjonctif': 'Le Subjonctif',
+            'conditionnel': 'Le Conditionnel',
+            'relief': 'Mise en relief',
+            'lettre': 'Lettre formelle',
+            'article': 'Article d\'opinion',
+            'essai': 'Essai argumentatif',
+            'checklist': 'Check-list relecture',
+            'monologue': 'Monologue oral',
+            'debat': 'Stratégies de débat',
+            'expressions': 'Expressions orales',
+            'lecture': 'Lecture rapide',
+            'pieges': 'Pièges classiques',
+            'vocabpresse': 'Vocabulaire presse',
+            'grille': 'Grille du jury',
+            'erreurs': '10 erreurs fatales',
+            'strategies': 'Stratégies +points',
+            'planning': 'Plan 4 semaines',
+            'quiz': 'Quiz interactif'
+        };
+        var visited = new Set();
+
+        function showSection(id) {
+            sections.forEach(function(s) {
+                var el = document.getElementById('sec-' + s);
+                if (el) el.classList.remove('active');
+            });
+            var target = document.getElementById('sec-' + id);
+            if (target) {
+                target.classList.add('active');
+                visited.add(id);
+            }
+            document.querySelectorAll('.nav-item').forEach(function(n) {
+                n.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-item').forEach(function(n) {
+                if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + id + "'")) n.classList.add('active');
+            });
+            document.getElementById('topbar-title').textContent = titles[id] || id;
+            var pct = Math.round(visited.size / sections.length * 100);
+            document.getElementById('progress-fill').style.width = pct + '%';
+            document.getElementById('pct').textContent = pct + '%';
+            window.scrollTo(0, 0);
+            document.getElementById('sidebar').classList.remove('open');
+        }
+
+        function switchTab(el, id) {
+            var parent = el.closest('.card');
+            parent.querySelectorAll('.tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            parent.querySelectorAll('.tab-content').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            el.classList.add('active');
+            var tc = parent.querySelector('#tc-' + id);
+            if (tc) tc.classList.add('active');
+        }
+
+        function toggleAcc(header) {
+            var body = header.nextElementSibling;
+            header.classList.toggle('open');
+            if (body) body.classList.toggle('open');
+        }
+
+        var checkStates = new Array(14).fill(false);
+
+        function toggleCheck(i) {
+            checkStates[i] = !checkStates[i];
+            var box = document.querySelector('#cli-' + i + ' .check-box');
+            var item = document.getElementById('cli-' + i);
+            if (checkStates[i]) {
+                box.classList.add('checked');
+                item.classList.add('checked-item');
+            } else {
+                box.classList.remove('checked');
+                item.classList.remove('checked-item');
+            }
+            document.getElementById('cl-count').textContent = checkStates.filter(Boolean).length;
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        buildQuiz();
+        showSection('home');
+    </script>
+</body>
+
+</html>

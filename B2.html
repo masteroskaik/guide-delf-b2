@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide DELF B2 — Argumentation Complète</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --paper: #f5f0e8;
+    --cream: #ede7d6;
+    --accent: #8b2500;
+    --gold: #c8951a;
+    --soft: #6b5e4e;
+    --pale: #faf7f1;
+    --border: #d4c9b5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 3.5rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(255,255,255,0.02) 30px,
+      rgba(255,255,255,0.02) 31px
+    );
+  }
+  header .badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    margin-bottom: 1.2rem;
+  }
+  header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+  header p {
+    color: rgba(245,240,232,0.65);
+    font-size: 0.95rem;
+    font-style: italic;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ── NAV TABS ── */
+  nav {
+    background: var(--cream);
+    border-bottom: 2px solid var(--border);
+    padding: 0 1rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav button {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 1rem 1.2rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--soft);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  nav button:hover { color: var(--accent); }
+  nav button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* ── SECTION ── */
+  .section { display: none; animation: fadeIn 0.35s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.9rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .section-subtitle {
+    color: var(--soft);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── THEME BLOCK ── */
+  .theme {
+    background: var(--pale);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .theme-header {
+    background: var(--cream);
+    padding: 0.9rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .theme-icon {
+    font-size: 1.1rem;
+  }
+  .theme-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .theme-body { padding: 1.4rem; }
+
+  /* ── POSITIONS ── */
+  .positions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  @media (max-width: 600px) { .positions { grid-template-columns: 1fr; } }
+
+  .position {
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .position.pour {
+    background: rgba(139,37,0,0.07);
+    color: var(--accent);
+    border: 1px solid rgba(139,37,0,0.2);
+  }
+  .position.contre {
+    background: rgba(107,94,78,0.1);
+    color: var(--soft);
+    border: 1px solid rgba(107,94,78,0.25);
+  }
+
+  /* ── ARGUMENT CARD ── */
+  .arg-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .arg-label {
+    background: var(--cream);
+    padding: 0.5rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .arg-label span {
+    background: var(--accent);
+    color: white;
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.65rem;
+  }
+  .arg-label span.contre-tag {
+    background: var(--soft);
+  }
+  .arg-content { padding: 1rem 1.1rem; }
+  .arg-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 0.8rem;
+    color: var(--ink);
+  }
+  .arg-text strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .example {
+    background: rgba(200,149,26,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 0.7rem 1rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #4a3d2e;
+    border-radius: 0 4px 4px 0;
+  }
+  .example::before {
+    content: '💬 ';
+    font-style: normal;
+  }
+
+  /* ── NUANCE BOX ── */
+  .nuance {
+    background: rgba(107,94,78,0.06);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .nuance-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .nuance p {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* ── VOCABULARY ── */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.7rem;
+    margin-top: 0.8rem;
+  }
+  .vocab-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.88rem;
+  }
+  .vocab-item .word { font-weight: 600; color: var(--accent); }
+  .vocab-item .def { color: var(--soft); font-size: 0.78rem; font-style: italic; }
+
+  /* ── CONNECTEURS ── */
+  .connect-section { margin-bottom: 2.5rem; }
+  .connect-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .connect-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .tag {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    font-size: 0.83rem;
+    font-style: italic;
+  }
+  .tag.gold { background: var(--gold); color: var(--ink); }
+  .tag.muted { background: var(--cream); color: var(--soft); border: 1px solid var(--border); }
+
+  /* ── STRUCTURE PLAN ── */
+  .plan-step {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    min-width: 2.2rem;
+    height: 2.2rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .step-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin-bottom: 0.4rem;
+  }
+  .step-template {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 0.6rem 1rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--ink);
+    border-radius: 0 4px 4px 0;
+    margin-top: 0.5rem;
+  }
+
+  /* ── NOTATION ── */
+  .critere-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 600px) { .critere-grid { grid-template-columns: 1fr; } }
+  .critere {
+    background: var(--pale);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+  }
+  .critere-name {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .critere-pts {
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .critere p {
+    font-size: 0.83rem;
+    color: var(--soft);
+    margin-top: 0.3rem;
+  }
+
+  .warning-box {
+    background: rgba(139,37,0,0.05);
+    border: 1px solid rgba(139,37,0,0.2);
+    border-radius: 6px;
+    padding: 1rem 1.3rem;
+    margin-top: 1.5rem;
+  }
+  .warning-box h4 {
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .warning-box ul {
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--soft);
+  }
+  .warning-box ul li { margin-bottom: 0.3rem; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Préparation officielle</div>
+  <h1>Guide Complet<br><em style="font-style:italic;font-weight:400;font-size:0.75em">DELF B2 — Argumentation</em></h1>
+  <p>7 catégories · Arguments pour & contre · Connecteurs · Plan rédigé · Critères de notation</p>
+</header>
+
+<nav>
+  <button class="active" onclick="show('travail', this)">🏢 Travail</button>
+  <button onclick="show('environnement', this)">🌱 Environnement</button>
+  <button onclick="show('transports', this)">🚲 Transports</button>
+  <button onclick="show('culture', this)">🎨 Culture</button>
+  <button onclick="show('education', this)">🎓 Éducation</button>
+  <button onclick="show('solidarite', this)">👥 Solidarité</button>
+  <button onclick="show('technologie', this)">💻 Technologie</button>
+  <button onclick="show('methode', this)">📋 Méthode</button>
+  <button onclick="show('connecteurs', this)">🔗 Connecteurs</button>
+  <button onclick="show('notation', this)">⭐ Notation</button>
+</nav>
+
+<main>
+
+<!-- ══════════ TRAVAIL ══════════ -->
+<div class="section active" id="travail">
+  <div class="section-title">Le Monde du Travail</div>
+  <div class="section-subtitle">Thèmes fréquents : télétravail · surveillance · semaine de 4 jours · burn-out · égalité salariale</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🏠</span><h3>Le Télétravail</h3></div>
+    <div class="theme-body">
+      <div class="positions">
+        <div class="position pour">✅ Pour sa généralisation</div>
+        <div class="position contre">❌ Contre sa suppression</div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Équilibre de vie</div>
+        <div class="arg-content">
+          <p class="arg-text">Le travail à distance permet d'<strong>optimiser l'équilibre</strong> entre vie professionnelle et vie privée, réduisant la fatigue chronique des collaborateurs et améliorant leur bien-être mental.</p>
+          <div class="example">Un salarié qui évite deux heures de transport quotidiennes gagne un temps précieux pour se reposer, faire du sport ou s'occuper de sa famille, ce qui se traduit par une meilleure disponibilité mentale au travail.</div>
+        </div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Productivité</div>
+        <div class="arg-content">
+          <p class="arg-text">Contrairement aux idées reçues, la flexibilité <strong>augmente l'efficacité</strong> et l'engagement des équipes, car les salariés bénéficient d'un environnement adapté à leur rythme de travail.</p>
+          <div class="example">Plusieurs études montrent que le calme de l'environnement domestique favorise la concentration sur les tâches complexes, réduisant sensiblement le taux d'erreurs dans les missions qui nécessitent de la rigueur.</div>
+        </div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Isolement & lien social</div>
+        <div class="arg-content">
+          <p class="arg-text">Le télétravail généralisé <strong>fragilise le tissu social</strong> de l'entreprise : les échanges informels, la solidarité entre collègues et la transmission des savoir-faire se délitent progressivement.</p>
+          <div class="example">Un jeune diplômé en début de carrière privé d'interactions régulières avec des collègues expérimentés se retrouve isolé, sans mentors pour l'accompagner, ce qui ralentit considérablement sa montée en compétences.</div>
+        </div>
+      </div>
+
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Concession (formule clé à l'examen)</div>
+        <p>« <em>Certes, le télétravail offre une flexibilité appréciable ; il n'en demeure pas moins qu'une présence physique régulière reste indispensable pour maintenir la cohésion des équipes et préserver la culture d'entreprise.</em> »</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">📷</span><h3>La Surveillance au travail (caméras, emails, logiciels de tracking)</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Climat social & confiance</div>
+        <div class="arg-content">
+          <p class="arg-text">Une surveillance continue <strong>détruit le lien de confiance</strong> fondamental entre la direction et le personnel, engendrant un stress permanent incompatible avec une performance durable.</p>
+          <div class="example">Se sentir constamment épié transforme l'espace de pause en lieu d'anxiété, nuit gravement à l'ambiance générale et pousse les salariés les plus qualifiés à chercher un employeur qui leur accorde davantage d'autonomie.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Sécurité & responsabilité</div>
+        <div class="arg-content">
+          <p class="arg-text">Dans certains secteurs sensibles, la traçabilité des actions professionnelles <strong>protège à la fois l'entreprise et le salarié</strong> en cas de litige ou d'incident de sécurité.</p>
+          <div class="example">Dans le secteur bancaire, l'enregistrement des transactions et des communications permet de prévenir les fraudes internes et de protéger l'employé contre de fausses accusations.</div>
+        </div>
+      </div>
+
+      <div class="theme-header" style="border-top:1px solid var(--border);margin-top:1.5rem;"><span class="theme-icon">📅</span><h3>La Semaine de 4 jours</h3></div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Santé mentale</div>
+        <div class="arg-content">
+          <p class="arg-text">Réduire la semaine de travail à quatre jours permet de <strong>lutter efficacement contre le burn-out</strong>, phénomène en forte augmentation dans les sociétés modernes.</p>
+          <div class="example">Des expériences menées en Islande et au Royaume-Uni ont démontré que les salariés concernés déclaraient un niveau de stress nettement inférieur, sans que la productivité globale des entreprises ne diminue.</div>
+        </div>
+      </div>
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Nuance à apporter</div>
+        <p>« <em>Si cette mesure semble séduisante, il convient toutefois de se demander si elle est applicable à tous les secteurs, notamment ceux qui requièrent une présence continue comme la santé ou les services d'urgence.</em> »</p>
+      </div>
+
+      <div style="margin-top:1.5rem;"><div class="nuance-title" style="margin-bottom:0.7rem;">📚 Vocabulaire thématique</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><div class="word">le collaborateur</div><div class="def">= l'employé (mot valorisant)</div></div>
+        <div class="vocab-item"><div class="word">le présentéisme</div><div class="def">être présent sans être productif</div></div>
+        <div class="vocab-item"><div class="word">le burn-out</div><div class="def">épuisement professionnel</div></div>
+        <div class="vocab-item"><div class="word">la QVT</div><div class="def">qualité de vie au travail</div></div>
+        <div class="vocab-item"><div class="word">délétère</div><div class="def">très néfaste, nocif</div></div>
+        <div class="vocab-item"><div class="word">le turnover</div><div class="def">taux de rotation du personnel</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ENVIRONNEMENT ══════════ -->
+<div class="section" id="environnement">
+  <div class="section-title">L'Environnement & l'Écologie</div>
+  <div class="section-subtitle">Thèmes fréquents : bétonnage · déchets plastiques · énergies renouvelables · agriculture intensive · décroissance</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🌳</span><h3>Le Bétonnage (destruction d'un parc, d'une forêt)</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Santé & cadre de vie</div>
+        <div class="arg-content">
+          <p class="arg-text">Les parcs urbains agissent comme les <strong>poumons indispensables</strong> d'une commune, régulant la température, purifiant l'air et offrant un refuge face au stress de la vie moderne.</p>
+          <div class="example">Lors des vagues de chaleur estivales, un quartier arboré peut être plusieurs degrés moins chaud qu'une zone entièrement bétonnée, protégeant ainsi les personnes âgées et les nourrissons particulièrement vulnérables.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Biodiversité irréversible</div>
+        <div class="arg-content">
+          <p class="arg-text">Remplacer la nature par des infrastructures grises <strong>détruit l'écosystème local de façon irréversible</strong> : une fois les espèces chassées, il est pratiquement impossible de recréer les conditions naturelles initiales.</p>
+          <div class="example">La construction d'un parking sur une zone humide entraîne non seulement la disparition de nombreuses espèces d'insectes et d'oiseaux, mais aussi des risques accrus d'inondations car le sol imperméabilisé ne peut plus absorber les eaux de pluie.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Développement économique</div>
+        <div class="arg-content">
+          <p class="arg-text">Ces projets peuvent <strong>stimuler l'activité économique locale</strong> en créant des emplois et en répondant à des besoins pressants en matière de logement.</p>
+          <div class="example">La construction de logements sociaux sur certaines friches industrielles répond à une pénurie de logements abordables qui oblige des familles modestes à s'éloigner toujours plus loin des centres-villes.</div>
+        </div>
+      </div>
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Concession à exploiter</div>
+        <p>« <em>Certes, les besoins en logements sont réels et urgents dans nos métropoles ; il n'en reste pas moins que sacrifier les derniers espaces verts disponibles constitue une solution à court terme qui hypothèque gravement l'avenir des générations futures.</em> »</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">♻️</span><h3>Le Plastique & les Déchets</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Pollution durable</div>
+        <div class="arg-content">
+          <p class="arg-text">Le plastique à usage unique représente une <strong>menace durable pour les écosystèmes</strong> car il se fragmente en microplastiques qui contaminent les sols et les eaux pendant des centaines d'années.</p>
+          <div class="example">Des microplastiques ont été retrouvés dans le sang humain, dans le lait maternel et dans des organismes vivant à plusieurs kilomètres de profondeur dans l'océan, témoignant d'une contamination globale et préoccupante.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;"><div class="nuance-title" style="margin-bottom:0.7rem;">📚 Vocabulaire thématique</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><div class="word">irréversible</div><div class="def">qu'on ne peut pas annuler</div></div>
+        <div class="vocab-item"><div class="word">l'empreinte carbone</div><div class="def">impact CO₂ d'une activité</div></div>
+        <div class="vocab-item"><div class="word">la biodiversité</div><div class="def">diversité du vivant</div></div>
+        <div class="vocab-item"><div class="word">pernicieux</div><div class="def">nuisible de façon insidieuse</div></div>
+        <div class="vocab-item"><div class="word">l'imperméabilisation</div><div class="def">rendre le sol étanche</div></div>
+        <div class="vocab-item"><div class="word">la décroissance</div><div class="def">réduire volontairement la production</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TRANSPORTS ══════════ -->
+<div class="section" id="transports">
+  <div class="section-title">Les Transports & la Mobilité</div>
+  <div class="section-subtitle">Thèmes fréquents : voitures en centre-ville · pistes cyclables · transports en commun gratuits · avion · voiture électrique</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🚫</span><h3>L'Interdiction des voitures en centre-ville</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Santé publique</div>
+        <div class="arg-content">
+          <p class="arg-text">Réduire le trafic automobile permet de <strong>faire baisser drastiquement les émissions</strong> de gaz polluants et les nuisances sonores, améliorant directement la qualité de vie des résidents.</p>
+          <div class="example">Dans plusieurs villes européennes ayant instauré des zones à faibles émissions, les habitants signalent une amélioration notable de la qualité de l'air, et les services de pneumologie des hôpitaux locaux ont enregistré une baisse des consultations liées aux pathologies respiratoires.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Économie locale</div>
+        <div class="arg-content">
+          <p class="arg-text">Les zones piétonnes <strong>dynamisent le commerce de proximité</strong> car les passants, libérés du trafic, prennent le temps de flâner et de découvrir les boutiques.</p>
+          <div class="example">On constate régulièrement que dans les artères piétonnisées, la fréquentation des commerces augmente de façon significative par rapport aux axes routiers classiques, contrairement aux craintes initiales des commerçants.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Accessibilité</div>
+        <div class="arg-content">
+          <p class="arg-text">Ces mesures <strong>pénalisent les populations des zones périurbaines et rurales</strong> qui dépendent de leur véhicule pour accéder à leur lieu de travail ou à certains services.</p>
+          <div class="example">Une aide-soignante qui travaille de nuit dans un hôpital en centre-ville et dont les transports en commun ne fonctionnent pas à ces heures-là se retrouve directement sanctionnée par une telle interdiction.</div>
+        </div>
+      </div>
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Nuance essentielle</div>
+        <p>« <em>Il serait naïf de croire que l'interdiction des voitures peut se décréter sans que des alternatives de transport efficaces, accessibles et abordables ne soient mises en place au préalable pour tous les usagers.</em> »</p>
+      </div>
+
+      <div style="margin-top:1.5rem;"><div class="nuance-title" style="margin-bottom:0.7rem;">📚 Vocabulaire thématique</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><div class="word">la mobilité douce</div><div class="def">vélo, marche, trottinette…</div></div>
+        <div class="vocab-item"><div class="word">la zone à faibles émissions</div><div class="def">ZFE : accès restreint aux pollueurs</div></div>
+        <div class="vocab-item"><div class="word">l'intermodalité</div><div class="def">combiner plusieurs transports</div></div>
+        <div class="vocab-item"><div class="word">pénaliser</div><div class="def">désavantager injustement</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CULTURE ══════════ -->
+<div class="section" id="culture">
+  <div class="section-title">La Culture, les Loisirs & le Sport</div>
+  <div class="section-subtitle">Thèmes fréquents : fermeture d'infrastructures · financement public de la culture · jeux vidéo · sport professionnel · tourisme de masse</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">📚</span><h3>Fermeture d'une infrastructure culturelle (bibliothèque, MJC, club sportif)</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Éducation & égalité</div>
+        <div class="arg-content">
+          <p class="arg-text">Ces espaces publics garantissent un <strong>accès égalitaire à la culture et au savoir</strong>, indépendamment des ressources financières des familles, et constituent ainsi un outil puissant contre les inégalités.</p>
+          <div class="example">La bibliothèque de quartier permet à de nombreux enfants ne disposant ni d'un ordinateur personnel ni d'un espace calme chez eux de venir travailler dans de bonnes conditions, nivelant ainsi les inégalités scolaires entre les familles aisées et les familles modestes.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Cohésion sociale</div>
+        <div class="arg-content">
+          <p class="arg-text">Ces lieux sont les <strong>vecteurs essentiels du lien social</strong> dans un quartier et luttent activement contre l'isolement qui touche de plus en plus de personnes dans nos sociétés hyperconnectées mais paradoxalement solitaires.</p>
+          <div class="example">Supprimer une maison de quartier, c'est priver les jeunes d'activités constructives et encadrées, mais aussi couper les personnes âgées de leur seul espace de rencontre et de convivialité hebdomadaire.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour (nuance budgétaire)</span> Contraintes financières</div>
+        <div class="arg-content">
+          <p class="arg-text">Face à des <strong>contraintes budgétaires sévères</strong>, les collectivités peuvent être amenées à rationaliser leurs dépenses et à concentrer leurs ressources sur les services jugés prioritaires.</p>
+          <div class="example">Une commune dont le budget est fortement contraint peut faire le choix douloureux mais nécessaire de fermer un équipement peu fréquenté pour maintenir des services essentiels comme les crèches ou les centres de soin.</div>
+        </div>
+      </div>
+
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Formule de concession</div>
+        <p>« <em>Bien que les contraintes budgétaires soient une réalité incontestable, il serait regrettable de sacrifier des équipements qui jouent un rôle social irremplaçable sans explorer d'abord d'autres pistes d'économies.</em> »</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🎮</span><h3>Les Jeux Vidéo (addiction vs. bénéfices)</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Risques d'addiction</div>
+        <div class="arg-content">
+          <p class="arg-text">Conçus pour capter l'attention par des mécanismes de récompense, certains jeux créent une <strong>dépendance comportementale</strong> qui empiète sur la vie sociale, scolaire et physique des joueurs.</p>
+          <div class="example">L'Organisation mondiale de la santé a officiellement reconnu le "trouble du jeu vidéo" comme un problème de santé publique, soulignant la nécessité d'encadrer l'accès des mineurs à ces contenus.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Compétences cognitives</div>
+        <div class="arg-content">
+          <p class="arg-text">Pratiqués de manière raisonnée, les jeux vidéo développent des <strong>compétences cognitives précieuses</strong> : réflexes, résolution de problèmes, travail en équipe et créativité.</p>
+          <div class="example">Des recherches en neurosciences ont montré que les joueurs réguliers présentent une meilleure coordination visuo-motrice et une capacité accrue à traiter des informations multiples simultanément.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ÉDUCATION ══════════ -->
+<div class="section" id="education">
+  <div class="section-title">L'Éducation & la Jeunesse</div>
+  <div class="section-subtitle">Thèmes fréquents : smartphones à l'école · alimentation à la cantine · devoirs à la maison · mixité scolaire · orientation précoce</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">📱</span><h3>Les Smartphones à l'école</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Concentration & résultats</div>
+        <div class="arg-content">
+          <p class="arg-text">L'usage des smartphones en milieu scolaire <strong>altère gravement les capacités d'attention</strong> des élèves, fragmentant leur concentration et nuisant à la qualité des apprentissages.</p>
+          <div class="example">Les établissements ayant interdit les téléphones constatent une participation beaucoup plus active durant les cours et une amélioration du climat scolaire, notamment une réduction du cyberharcèlement entre élèves.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Outil pédagogique</div>
+        <div class="arg-content">
+          <p class="arg-text">Intégré dans un cadre pédagogique structuré, le smartphone peut devenir un <strong>outil d'apprentissage puissant</strong> qui prépare les élèves aux outils numériques qu'ils utiliseront dans leur vie professionnelle.</p>
+          <div class="example">Des enseignants utilisent des applications de quiz interactifs ou de recherches documentaires encadrées qui augmentent sensiblement la motivation des élèves, en particulier ceux qui peinent à s'engager avec les méthodes traditionnelles.</div>
+        </div>
+      </div>
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Nuance à maîtriser</div>
+        <p>« <em>Plutôt que d'interdire purement et simplement le téléphone, une approche plus nuancée consisterait à former les enseignants à son usage pédagogique tout en instaurant des règles claires sur son utilisation en classe.</em> »</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🥗</span><h3>L'Alimentation à la cantine (bio, local, végétarien)</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Santé & responsabilité</div>
+        <div class="arg-content">
+          <p class="arg-text">Proposer des repas issus de l'agriculture biologique et des circuits courts <strong>préserve la santé des enfants</strong> tout en les sensibilisant concrètement au développement durable dès leur plus jeune âge.</p>
+          <div class="example">Plusieurs études de nutrition pédiatrique indiquent qu'une alimentation moins transformée et plus riche en légumes frais améliore les capacités de concentration des enfants dans l'après-midi, bénéficiant ainsi directement à leurs apprentissages.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Coût & accessibilité</div>
+        <div class="arg-content">
+          <p class="arg-text">Le surcoût engendré par une alimentation biologique risque de se <strong>répercuter sur les familles les plus modestes</strong>, creusant encore davantage les inégalités sociales à l'école.</p>
+          <div class="example">Si le prix du repas de cantine augmente significativement, certaines familles pourraient renoncer à y inscrire leurs enfants, privant ces derniers d'un repas équilibré garanti, ce qui serait contre-productif.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;"><div class="nuance-title" style="margin-bottom:0.7rem;">📚 Vocabulaire thématique</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><div class="word">l'apprentissage</div><div class="def">processus d'acquisition des savoirs</div></div>
+        <div class="vocab-item"><div class="word">le décrochage scolaire</div><div class="def">abandon progressif des études</div></div>
+        <div class="vocab-item"><div class="word">creuser les inégalités</div><div class="def">aggraver les écarts sociaux</div></div>
+        <div class="vocab-item"><div class="word">l'épanouissement</div><div class="def">développement harmonieux</div></div>
+        <div class="vocab-item"><div class="word">susciter</div><div class="def">provoquer, éveiller (l'intérêt)</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SOLIDARITÉ ══════════ -->
+<div class="section" id="solidarite">
+  <div class="section-title">La Solidarité & la Vie en Société</div>
+  <div class="section-subtitle">Thèmes fréquents : projets intergénérationnels · bénévolat · immigration · service civique · aide aux sans-abri</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🤝</span><h3>Les Projets intergénérationnels</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Utilité humaine & solidarité</div>
+        <div class="arg-content">
+          <p class="arg-text">Mettre en contact la jeunesse et les personnes âgées permet de <strong>recréer du lien social</strong> et de rompre l'isolement qui représente aujourd'hui un problème de santé publique majeur pour les aînés.</p>
+          <div class="example">Des programmes de cohabitation intergénérationnelle permettent à des étudiants de se loger à moindre coût chez des seniors en échange de quelques heures de compagnie et de services, bénéficiant ainsi aux deux parties de manière équitable.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Transmission & enrichissement mutuel</div>
+        <div class="arg-content">
+          <p class="arg-text">Ces échanges permettent une <strong>transmission précieuse de savoir-faire et d'expériences</strong> : les aînés apportent leur sagesse et leur recul, tandis que les jeunes introduisent de nouvelles perspectives et des compétences numériques.</p>
+          <div class="example">Des ateliers où des lycéens apprennent à des retraités à utiliser un smartphone, en échange de cours de jardinage ou de cuisine traditionnelle, illustrent parfaitement comment cette complémentarité peut s'avérer mutuellement enrichissante.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Nuance</span> Risque de paternalisme</div>
+        <div class="arg-content">
+          <p class="arg-text">Il convient d'éviter que ces projets ne glissent vers une <strong>relation asymétrique</strong> où la personne âgée serait perçue uniquement comme un être à assister plutôt que comme un pair à part entière.</p>
+          <div class="example">Des programmes bien conçus veillent à ce que les personnes âgées participantes conservent un rôle actif et valorisant, et ne se sentent pas réduites à leur seule vulnérabilité.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🌍</span><h3>L'Immigration & l'Intégration</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Apport économique & démographique</div>
+        <div class="arg-content">
+          <p class="arg-text">L'immigration contribue à <strong>pallier les déficits démographiques</strong> de nombreuses sociétés vieillissantes et apporte des compétences dans des secteurs en manque de main-d'œuvre.</p>
+          <div class="example">Dans de nombreux pays européens, les secteurs de la santé, de l'agriculture et des services seraient en grande difficulté sans l'apport de travailleurs venus de l'étranger.</div>
+        </div>
+      </div>
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Attention : sujet politiquement sensible</div>
+        <p>À l'examen, développez des arguments <em>équilibrés</em>. Évitez les affirmations trop tranchées et montrez que vous comprenez la complexité du sujet.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TECHNOLOGIE ══════════ -->
+<div class="section" id="technologie">
+  <div class="section-title">Les Nouvelles Technologies & la Vie Privée</div>
+  <div class="section-subtitle">Thèmes fréquents : intelligence artificielle · réseaux sociaux · données personnelles · réalité virtuelle · e-santé</div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">🤖</span><h3>L'Intelligence Artificielle (emploi, humanité des services)</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Fracture numérique & exclusion</div>
+        <div class="arg-content">
+          <p class="arg-text">La numérisation totale des services par des systèmes automatisés <strong>exclut une partie fragile de la population</strong> et déshumanise des interactions qui requièrent empathie et discernement.</p>
+          <div class="example">Les personnes âgées, peu scolarisées ou présentant un handicap cognitif se retrouvent totalement démunies face à des démarches administratives entièrement dématérialisées, renforçant une fracture numérique déjà préoccupante.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Efficacité & accessibilité</div>
+        <div class="arg-content">
+          <p class="arg-text">Bien déployée, l'intelligence artificielle peut <strong>rendre des services de qualité accessibles 24h/24</strong> et réduire les délais d'attente qui pénalisent les usagers dans de nombreux services publics.</p>
+          <div class="example">Un assistant virtuel disponible à toute heure pour orienter les patients vers le bon spécialiste médical peut s'avérer salvateur dans les déserts médicaux où un médecin généraliste est difficile à obtenir.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Emploi & déclassement</div>
+        <div class="arg-content">
+          <p class="arg-text">L'automatisation menace de <strong>déclasser massivement des catégories de travailleurs</strong> sans que des mécanismes de reconversion et de protection sociale suffisants ne soient prévus.</p>
+          <div class="example">Les employés de centres d'appels, les agents de saisie ou les conducteurs de véhicules sont parmi les premiers à subir les effets de cette transition technologique, souvent sans filet de protection adéquat.</div>
+        </div>
+      </div>
+      <div class="nuance">
+        <div class="nuance-title">⚖️ Nuance clé</div>
+        <p>« <em>L'enjeu n'est pas de freiner l'innovation technologique, mais de s'assurer que la transition s'accompagne de politiques volontaristes de formation, de reconversion et de maintien des services humains là où ils sont indispensables.</em> »</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme">
+    <div class="theme-header"><span class="theme-icon">📱</span><h3>Les Réseaux Sociaux & la Vie Privée</h3></div>
+    <div class="theme-body">
+      <div class="arg-card">
+        <div class="arg-label"><span class="contre-tag">Contre</span> Santé mentale des jeunes</div>
+        <div class="arg-content">
+          <p class="arg-text">L'exposition prolongée aux réseaux sociaux, en particulier chez les adolescents, est associée à une <strong>augmentation des troubles anxieux</strong>, dépressifs et de l'image corporelle.</p>
+          <div class="example">De nombreuses études en psychologie du développement établissent un lien entre l'usage intensif d'Instagram et une détérioration de l'estime de soi chez les jeunes filles, exposées à des standards de beauté irréalistes.</div>
+        </div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-label"><span>Pour</span> Mobilisation & citoyenneté</div>
+        <div class="arg-content">
+          <p class="arg-text">Ces plateformes ont prouvé leur capacité à <strong>mobiliser des citoyens</strong> autour de causes communes et à donner une voix à des communautés longtemps marginalisées dans les médias traditionnels.</p>
+          <div class="example">De nombreux mouvements sociaux récents ont émergé et se sont organisés grâce aux réseaux sociaux, permettant une prise de conscience collective à une vitesse et une échelle sans précédent dans l'histoire.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;"><div class="nuance-title" style="margin-bottom:0.7rem;">📚 Vocabulaire thématique</div>
+      <div class="vocab-grid">
+        <div class="vocab-item"><div class="word">la fracture numérique</div><div class="def">inégalité d'accès au digital</div></div>
+        <div class="vocab-item"><div class="word">l'algorithme</div><div class="def">logique automatisée de tri</div></div>
+        <div class="vocab-item"><div class="word">la désinformation</div><div class="def">propagation de fausses infos</div></div>
+        <div class="vocab-item"><div class="word">intrusif</div><div class="def">qui viole l'intimité</div></div>
+        <div class="vocab-item"><div class="word">l'ubérisation</div><div class="def">disruption d'un secteur par le digital</div></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MÉTHODE ══════════ -->
+<div class="section" id="methode">
+  <div class="section-title">La Méthode : Plan Complet Rédigé</div>
+  <div class="section-subtitle">Structure type pour l'essai argumenté ou la lettre formelle du DELF B2 (250 mots minimum)</div>
+
+  <div class="plan-step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h4>Introduction (3–4 phrases)</h4>
+      <p>Amenez le sujet, reformulez la problématique et annoncez votre plan (ou votre prise de position si la consigne le demande).</p>
+      <div class="step-template">« La question de [thème] suscite aujourd'hui de vifs débats dans notre société. En effet, [contexte en 1 phrase]. Il convient donc de s'interroger sur [reformulation de la question]. Nous verrons dans un premier temps que [argument 1], avant d'examiner [argument 2 / contrepartie]. »</div>
+    </div>
+  </div>
+
+  <div class="plan-step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h4>Paragraphe 1 — Premier argument (5–6 phrases)</h4>
+      <p>Annonce + développement de l'argument + exemple concret + lien avec la conclusion du paragraphe.</p>
+      <div class="step-template">« Tout d'abord, force est de constater que [argument principal]. En effet, [développement / explication]. À titre d'illustration, [exemple concret sans chiffres inventés]. Cela démontre clairement que [synthèse du paragraphe]. »</div>
+    </div>
+  </div>
+
+  <div class="plan-step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h4>Paragraphe 2 — Deuxième argument ou concession (5–6 phrases)</h4>
+      <p>Introduisez une concession ou un deuxième argument. La concession montre votre esprit critique — c'est ce qui distingue les bonnes copies.</p>
+      <div class="step-template">« Certes, il serait réducteur d'ignorer que [concession / argument adverse]. Cependant / Il n'en demeure pas moins que [réfutation ou nuance]. Comme le soulignent [des experts / certaines études], [développement]. Ainsi, [synthèse]. »</div>
+    </div>
+  </div>
+
+  <div class="plan-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h4>Paragraphe 3 (optionnel) — Troisième argument</h4>
+      <p>Si le sujet s'y prête et si vous avez suffisamment de matière, ajoutez un troisième argument pour enrichir votre démonstration.</p>
+      <div class="step-template">« Enfin, il convient de souligner que [3ème argument]. [Exemple / développement]. Cette dimension est d'autant plus importante que [justification]. »</div>
+    </div>
+  </div>
+
+  <div class="plan-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h4>Conclusion (2–3 phrases)</h4>
+      <p>Bilan synthétique + prise de position nette + ouverture (question plus large ou perspective d'avenir).</p>
+      <div class="step-template">« En définitive, il apparaît que [bilan synthétique]. Dès lors, [prise de position ou recommandation claire]. Cette question nous invite plus largement à réfléchir à [ouverture sur un enjeu plus vaste]. »</div>
+    </div>
+  </div>
+
+  <div class="warning-box" style="margin-top:2rem;">
+    <h4>⚠️ Erreurs fréquentes à éviter absolument</h4>
+    <ul>
+      <li>Citer des chiffres précis inventés (dire « selon certaines études » est bien plus crédible)</li>
+      <li>Oublier la concession : sans elle, votre argumentation paraît simpliste</li>
+      <li>Utiliser toujours les mêmes connecteurs (« de plus, de plus, de plus… »)</li>
+      <li>Écrire une introduction trop courte ou une conclusion qui répète mot pour mot l'introduction</li>
+      <li>Mélanger les registres : restez formel du début à la fin (pas de « on », mais « nous » ou la forme impersonnelle)</li>
+      <li>Dépasser le sujet : restez centré sur la question posée et ne partez pas dans tous les sens</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════ CONNECTEURS ══════════ -->
+<div class="section" id="connecteurs">
+  <div class="section-title">Les Connecteurs Logiques</div>
+  <div class="section-subtitle">Variez absolument vos connecteurs — les correcteurs pénalisent les répétitions</div>
+
+  <div class="connect-section">
+    <h3>1. Introduire / Commencer</h3>
+    <div class="connect-tags">
+      <span class="tag">Tout d'abord</span>
+      <span class="tag">En premier lieu</span>
+      <span class="tag">Il convient d'abord de souligner que</span>
+      <span class="tag">Force est de constater que</span>
+      <span class="tag">Il est indéniable que</span>
+    </div>
+  </div>
+
+  <div class="connect-section">
+    <h3>2. Ajouter un argument</h3>
+    <div class="connect-tags">
+      <span class="tag">Par ailleurs</span>
+      <span class="tag">De surcroît</span>
+      <span class="tag">Qui plus est</span>
+      <span class="tag">En outre</span>
+      <span class="tag">Il convient également de souligner</span>
+      <span class="tag">À cela s'ajoute le fait que</span>
+    </div>
+  </div>
+
+  <div class="connect-section">
+    <h3>3. Introduire un exemple</h3>
+    <div class="connect-tags">
+      <span class="tag gold">À titre d'illustration</span>
+      <span class="tag gold">Comme le démontre le cas de</span>
+      <span class="tag gold">C'est notamment le cas lorsque</span>
+      <span class="tag gold">On peut citer à cet égard</span>
+      <span class="tag gold">Il suffit de constater que</span>
+    </div>
+    <p style="font-size:0.83rem;color:var(--soft);margin-top:0.5rem;font-style:italic;">⚠️ Évitez de toujours commencer par « Par exemple » — utilisez cette liste pour varier.</p>
+  </div>
+
+  <div class="connect-section">
+    <h3>4. Exprimer la concession (crucial au B2 !)</h3>
+    <div class="connect-tags">
+      <span class="tag">Certes… mais</span>
+      <span class="tag">Il est vrai que… il n'en demeure pas moins que</span>
+      <span class="tag">Bien que + subjonctif</span>
+      <span class="tag">Quand bien même</span>
+      <span class="tag">Sans nier que… il reste que</span>
+      <span class="tag">Si l'on peut reconnaître que… il faut néanmoins admettre que</span>
+    </div>
+  </div>
+
+  <div class="connect-section">
+    <h3>5. Opposer / Réfuter</h3>
+    <div class="connect-tags">
+      <span class="tag">Cependant</span>
+      <span class="tag">Or</span>
+      <span class="tag">Pourtant</span>
+      <span class="tag">Il serait néanmoins erroné de croire que</span>
+      <span class="tag">À l'opposé</span>
+      <span class="tag">En revanche</span>
+    </div>
+  </div>
+
+  <div class="connect-section">
+    <h3>6. Conclure</h3>
+    <div class="connect-tags">
+      <span class="tag">En définitive</span>
+      <span class="tag">En guise de conclusion</span>
+      <span class="tag">Au terme de cette analyse</span>
+      <span class="tag">Il apparaît ainsi que</span>
+      <span class="tag">Tout bien pesé</span>
+    </div>
+  </div>
+
+  <div class="connect-section">
+    <h3>7. Exprimer une cause / conséquence</h3>
+    <div class="connect-tags">
+      <span class="tag muted">En raison de</span>
+      <span class="tag muted">C'est pourquoi</span>
+      <span class="tag muted">Aussi (+ inversion)</span>
+      <span class="tag muted">De ce fait</span>
+      <span class="tag muted">Il s'ensuit que</span>
+      <span class="tag muted">D'où le fait que</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ NOTATION ══════════ -->
+<div class="section" id="notation">
+  <div class="section-title">Les Critères de Notation Officiels</div>
+  <div class="section-subtitle">L'épreuve d'expression écrite vaut 25 points au total — comprendre les critères, c'est cibler les points</div>
+
+  <div class="critere-grid">
+    <div class="critere">
+      <div class="critere-name">Respect de la consigne</div>
+      <div class="critere-pts">/ 5</div>
+      <p>Vous répondez bien à la question posée, vous respectez le type de texte demandé (lettre, article, essai) et la longueur minimale.</p>
+    </div>
+    <div class="critere">
+      <div class="critere-name">Capacité à présenter des faits</div>
+      <div class="critere-pts">/ 5</div>
+      <p>Vous illustrez vos arguments par des exemples concrets et pertinents. Vos affirmations sont développées et non laissées en l'air.</p>
+    </div>
+    <div class="critere">
+      <div class="critere-name">Cohérence & cohésion</div>
+      <div class="critere-pts">/ 5</div>
+      <p>Votre texte est logiquement organisé. Les connecteurs sont variés et utilisés à bon escient. Le lecteur suit facilement votre raisonnement.</p>
+    </div>
+    <div class="critere">
+      <div class="critere-name">Compétence lexicale</div>
+      <div class="critere-pts">/ 5</div>
+      <p>Vous utilisez un vocabulaire riche, précis et varié. Vous évitez les répétitions et employez des synonymes, des collocations et du vocabulaire thématique.</p>
+    </div>
+    <div class="critere">
+      <div class="critere-name">Compétence grammaticale</div>
+      <div class="critere-pts">/ 5</div>
+      <p>Votre grammaire est correcte : accords, conjugaisons, subjonctif (après bien que, pour que…), structures complexes (relatives, hypothétiques).</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <h4>🎯 Stratégie pour maximiser votre score</h4>
+    <ul>
+      <li><strong>Cohésion (+5) :</strong> utilisez systématiquement des connecteurs variés de cette liste et assurez-vous que chaque paragraphe enchaîne logiquement avec le précédent</li>
+      <li><strong>Lexique (+5) :</strong> glissez 3–4 mots du vocabulaire thématique de chaque section dans votre texte</li>
+      <li><strong>Grammaire (+5) :</strong> insérez au moins une structure avec le subjonctif (« bien que + subjonctif ») et une hypothèse (« si… »)</li>
+      <li><strong>Faits (+5) :</strong> préférez « selon des études en neurosciences » à « selon des études à 15% » — les chiffres inventés peuvent être sanctionnés</li>
+      <li><strong>Consigne (+5) :</strong> vérifiez toujours : quel est le type de texte ? Quelle est la longueur minimale ? Y a-t-il un destinataire précis ?</li>
+    </ul>
+  </div>
+
+  <div style="margin-top:2rem;background:var(--pale);border:1px solid var(--border);border-radius:6px;padding:1.5rem 1.8rem;">
+    <div class="nuance-title" style="margin-bottom:1rem;">📝 Structures grammaticales à placer (niveau B2)</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="word">Bien que + subj.</div><div class="def">Bien qu'il soit efficace…</div></div>
+      <div class="vocab-item"><div class="word">Pour que + subj.</div><div class="def">Pour que cela fonctionne…</div></div>
+      <div class="vocab-item"><div class="word">Si + imparfait</div><div class="def">Si l'on supprimait…</div></div>
+      <div class="vocab-item"><div class="word">D'autant plus que</div><div class="def">Renforce l'argument</div></div>
+      <div class="vocab-item"><div class="word">Non seulement… mais aussi</div><div class="def">Double argument</div></div>
+      <div class="vocab-item"><div class="word">Loin de + infinitif</div><div class="def">Loin de résoudre le problème…</div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
